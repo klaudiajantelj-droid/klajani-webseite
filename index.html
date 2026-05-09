@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KLAJANI Group</title>
-<meta name="description" content="KLAJANI Group connects selected premium business ventures across automotive services, visibility networks and strategic event partnerships between Slovenia and international markets.">
+<title>KLAJANI Group — Private Premium Ventures</title>
+<meta name="description" content="KLAJANI Group operates as an independent asset platform — built for scalable positioning, selected deal flow and long-term market value across European premium segments.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -14,11 +14,9 @@
   :root {
     --gold: #B8A06A;
     --gold-light: #D4BC8A;
-    --gold-pale: #F5EDD8;
     --dark: #0D0D0D;
     --dark-2: #1A1A18;
     --dark-3: #252520;
-    --mid: #4A4A42;
     --muted: #8A8A7E;
     --light: #F7F5F0;
     --white: #FDFCF9;
@@ -152,10 +150,7 @@
     animation: fadeUp 1s ease forwards 1s;
   }
 
-  .btn-primary:hover {
-    background: var(--gold);
-    color: var(--dark);
-  }
+  .btn-primary:hover { background: var(--gold); color: var(--dark); }
 
   /* DIVIDER */
   .divider {
@@ -164,10 +159,8 @@
     margin: 0 4rem;
   }
 
-  /* BUSINESS AREAS */
-  .section {
-    padding: 6rem 4rem;
-  }
+  /* SECTIONS */
+  .section { padding: 6rem 4rem; }
 
   .section-label {
     font-size: 0.65rem;
@@ -177,26 +170,32 @@
     margin-bottom: 4rem;
   }
 
+  .section-label-sm {
+    font-size: 0.65rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  /* BUSINESS AREAS — 4 columns */
   .areas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 0;
   }
 
   .area-card {
     padding: 2.5rem 2rem 2.5rem 0;
     border-top: 1px solid rgba(255,255,255,0.06);
-    position: relative;
   }
 
   .area-card:not(:last-child) {
     border-right: 1px solid rgba(255,255,255,0.06);
-    padding-right: 2.5rem;
+    padding-right: 2rem;
   }
 
-  .area-card:not(:first-child) {
-    padding-left: 2.5rem;
-  }
+  .area-card:not(:first-child) { padding-left: 2rem; }
 
   .area-number {
     font-size: 0.6rem;
@@ -209,14 +208,14 @@
   .area-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1.45rem;
     color: var(--white);
     margin-bottom: 0.5rem;
     line-height: 1.2;
   }
 
   .area-tagline {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--gold);
     letter-spacing: 0.05em;
     margin-bottom: 1.25rem;
@@ -224,19 +223,15 @@
   }
 
   .area-text {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--muted);
     line-height: 1.8;
-    margin-bottom: 1.25rem;
   }
 
-  .area-services {
-    list-style: none;
-    margin-top: 1rem;
-  }
+  .area-services { list-style: none; margin-top: 1.25rem; }
 
   .area-services li {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: rgba(138,138,126,0.8);
     padding: 0.3rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -255,38 +250,212 @@
     flex-shrink: 0;
   }
 
+  .area-markets {
+    font-size: 0.7rem;
+    color: rgba(138,138,126,0.55);
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+  }
+
+  .area-badge {
+    display: inline-block;
+    font-size: 0.48rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(184,160,106,0.28);
+    border: 1px solid rgba(184,160,106,0.07);
+    padding: 0.18rem 0.45rem;
+    margin-top: 1.5rem;
+    line-height: 1.8;
+  }
+
+  /* SELECTED FOCUS */
+  .focus-section {
+    padding: 3.5rem 4rem;
+    background: var(--dark-3);
+  }
+
+  .focus-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 2rem;
+  }
+
+  .focus-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    min-width: 160px;
+  }
+
+  .focus-keywords {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .focus-keyword {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 1.35rem;
+    color: rgba(247,245,240,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* MARKETS */
+  .markets-section {
+    padding: 6rem 4rem;
+    background: var(--dark-2);
+  }
+
+  .markets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .market-card {
+    padding: 2.5rem 2rem 2.5rem 0;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .market-card:not(:first-child) { padding-left: 2rem; }
+  .market-card:last-child { border-right: none; }
+
+  .market-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .market-dot.pending {
+    background: transparent;
+    border: 1px solid rgba(184,160,106,0.3);
+  }
+
+  .market-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+
+  .market-region {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .market-text {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .market-ventures { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  .market-venture {
+    font-size: 0.7rem;
+    color: var(--gold);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .market-venture::before {
+    content: '';
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ABOUT */
+  .about-section {
+    padding: 6rem 4rem;
+    background: var(--dark-3);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    color: var(--light);
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+    opacity: 0.9;
+  }
+
+  .about-body {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.85;
+    max-width: 380px;
+  }
+
   /* CONTACT */
   .contact-section {
     padding: 5rem 4rem 6rem;
     background: var(--dark-2);
   }
 
-  .contact-inner {
-    max-width: 600px;
-  }
+  .contact-inner { max-width: 600px; }
 
-  .contact-name {
+  .contact-entity {
     font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.82rem;
-    letter-spacing: 0.15em;
-    color: rgba(247,245,240,0.6);
+    font-weight: 400;
+    font-size: 0.88rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
     margin-bottom: 0.5rem;
   }
 
-  .contact-location {
-    font-size: 0.75rem;
-    color: rgba(247,245,240,0.4);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+  .contact-email {
+    font-size: 0.82rem;
+    color: var(--gold-light);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(212,188,138,0.3);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+    display: inline-block;
     margin-bottom: 2.5rem;
   }
 
-  .contact-links {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+  .contact-email:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+  .contact-person {
+    font-size: 0.6rem;
+    color: rgba(138,138,126,0.28);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
   }
+
+  .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
   .contact-link {
     display: flex;
@@ -303,7 +472,6 @@
   }
 
   .contact-link:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
-
   .contact-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
   /* FOOTER */
@@ -324,87 +492,120 @@
     color: var(--muted);
   }
 
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
   .footer-copy {
     font-size: 0.65rem;
     color: rgba(138,138,126,0.5);
     letter-spacing: 0.05em;
   }
 
-  /* ANIMATIONS */
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-link {
+    font-size: 0.63rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(138,138,126,0.45);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-link:hover { color: var(--muted); }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
   /* RESPONSIVE */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     nav { padding: 1.5rem 1.75rem; }
     .hero { padding: 7rem 1.75rem 4rem; }
     .divider { margin: 0 1.75rem; }
     .section { padding: 4rem 1.75rem; }
-    .areas-grid { grid-template-columns: 1fr; }
-    .area-card { padding: 2rem 0; border-right: none !important; padding-right: 0 !important; padding-left: 0 !important; }
+    .areas-grid { grid-template-columns: 1fr 1fr; }
+    .area-card { padding: 1.75rem 1rem 1.75rem 0; }
+    .area-card:nth-child(2n) { border-right: none; padding-right: 0; }
+    .area-card:nth-child(2n+1):not(:first-child) { padding-left: 0; }
+    .area-card:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 0; }
+    .focus-section { padding: 2.5rem 1.75rem; }
+    .focus-row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .focus-keywords { gap: 1.5rem; }
+    .focus-keyword { font-size: 1.1rem; }
+    .markets-section { padding: 4rem 1.75rem; }
+    .markets-grid { grid-template-columns: 1fr; }
+    .market-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 2rem 0 !important; }
+    .market-card:last-child { border-bottom: none; }
+    .about-section { padding: 4rem 1.75rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .contact-section { padding: 4rem 1.75rem; }
-    footer { padding: 1.75rem; }
+    footer { padding: 1.5rem 1.75rem; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .footer-right { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  }
+
+  @media (max-width: 480px) {
+    .areas-grid { grid-template-columns: 1fr; }
+    .area-card { padding: 2rem 0 !important; border-right: none !important; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">KLAJANI Group</a>
-  <a href="#contact" class="nav-cta">Contact</a>
+  <a href="index.html" class="nav-logo">KLAJANI Group</a>
+  <a href="#contact" class="nav-cta">Private Inquiries</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Premium Ventures · Europe</p>
-  <h1>KLAJANI<br>Group</h1>
-  <p class="hero-sub">Private premium ventures across visibility, automotive and strategic partnerships.</p>
-  <p class="hero-text">KLAJANI Group connects selected premium business ventures across automotive services, visibility networks and strategic event partnerships between Slovenia and international markets.</p>
-  <a href="#contact" class="btn-primary">Contact Us</a>
+  <p class="hero-eyebrow">Private Commercial Group · International</p>
+  <h1>KLAJANI<br><span style="font-size: 0.7em;">Group</span></h1>
+  <p class="hero-sub">An independent commercial platform for strategic opportunities, premium ventures and selected partnerships.</p>
+  <p class="hero-text">KLAJANI Group operates as an independent asset platform — built for scalable positioning, selected deal flow and long-term market value across European premium segments.</p>
+  <a href="#ventures" class="btn-primary">Explore our ventures</a>
 </section>
 
 <div class="divider"></div>
 
-<!-- BUSINESS AREAS -->
 <section class="section" id="ventures">
-  <p class="section-label">Business Areas</p>
+  <p class="section-label">Business Verticals</p>
   <div class="areas-grid">
 
     <div class="area-card">
       <p class="area-number">01</p>
-      <h2 class="area-title">KLAJANI<br>Automotive</h2>
-      <p class="area-tagline">Mobile premium vehicle preparation</p>
-      <p class="area-text">Discreet, mobile and professional vehicle preparation directly on-site — for selected B2B partners.</p>
-      <ul class="area-services">
-        <li>Smart Repair</li>
-        <li>Paint Correction</li>
-        <li>Premium Protection</li>
-        <li>Vehicle Detailing</li>
-      </ul>
+      <h2 class="area-title">Strategic<br>Opportunities</h2>
+      <p class="area-tagline">Selected asset introductions</p>
+      <p class="area-text">Selected hospitality assets, private real estate opportunities, land opportunities and strategic introductions.</p>
     </div>
 
     <div class="area-card">
       <p class="area-number">02</p>
-      <h2 class="area-title">Slovenia<br>Desk</h2>
-      <p class="area-tagline">Private visibility network · Slovenia</p>
-      <p class="area-text">Premium visibility placements in carefully selected business environments across Slovenia.</p>
+      <h2 class="area-title">Visibility<br>Networks</h2>
+      <p class="area-tagline">Curated premium visibility</p>
+      <p class="area-text">Curated premium visibility networks in selected high-end environments.</p>
+      <p class="area-markets">Current markets: Mallorca · Slovenia</p>
     </div>
 
     <div class="area-card">
       <p class="area-number">03</p>
-      <h2 class="area-title">Mallorca<br>Desk</h2>
-      <p class="area-tagline">Private visibility network · Mallorca</p>
-      <p class="area-text">Connecting brands with premium audiences through curated visibility in selected premium locations.</p>
+      <h2 class="area-title">Automotive<br>Precision</h2>
+      <p class="area-tagline">Automotive Precision</p>
+      <p class="area-text">Specialised smart repair, cosmetic correction and preservation for selected premium and collector vehicles.</p>
     </div>
 
     <div class="area-card">
       <p class="area-number">04</p>
-      <h2 class="area-title">Strategic<br>Projects</h2>
-      <p class="area-tagline">International partnerships</p>
-      <p class="area-text">Strategic business partnerships, selected international collaborations and premium visibility integrations across carefully chosen projects.</p>
+      <h2 class="area-title">Strategic<br>Partnerships</h2>
+      <p class="area-tagline">Selected strategic partnerships</p>
+      <p class="area-text">Selected event partnerships and commercial activations — strategic collaborations with premium positioning and long-term value.</p>
+      <span class="area-badge">WDSF Dutch Shepherd World Championship 2026 — Official Digital Partner & Commercial Operations</span>
     </div>
 
   </div>
@@ -412,12 +613,97 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
+<section class="focus-section">
+  <div class="focus-row">
+    <span class="focus-label">Selected Focus</span>
+    <div class="focus-keywords">
+      <span class="focus-keyword">Access</span>
+      <span class="focus-keyword">Structure</span>
+      <span class="focus-keyword">Positioning</span>
+      <span class="focus-keyword">Partnerships</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="markets-section" id="markets">
+  <p class="section-label">Active Markets</p>
+  <div class="markets-grid">
+
+    <div class="market-card">
+      <div class="market-dot"></div>
+      <h3 class="market-name">Mallorca</h3>
+      <p class="market-region">Balearic Islands · Spain</p>
+      <p class="market-text">Premium visibility placements in carefully selected locations across the island's most prestigious environments.</p>
+      <div class="market-ventures">
+        <span class="market-venture">Mallorca Desk</span>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="market-dot"></div>
+      <h3 class="market-name">Slovenia</h3>
+      <p class="market-region">Central Europe</p>
+      <p class="market-text">Premium visibility network operating across Ljubljana, Maribor and selected business environments.</p>
+      <div class="market-ventures">
+        <span class="market-venture">Slovenia Desk</span>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <div class="market-dot pending"></div>
+      <h3 class="market-name">Expansion</h3>
+      <p class="market-region">In Preparation</p>
+      <p class="market-text">Further European markets are currently under evaluation as part of KLAJANI Group's long-term positioning strategy.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div>
+      <p class="section-label-sm">About</p>
+      <p class="about-quote">Built on trust, access and long-term value.</p>
+      <p class="about-body">KLAJANI Group operates through selected opportunities, premium ventures and strategic introductions — focused on quality, discretion and long-term value.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,0.06);padding-top:0;">
+      <div style="display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">01</span>
+        <div>
+          <p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">Premium Positioning</p>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">Each vertical operates in a clearly defined premium segment — focused on quality, selectivity and transferable brand value.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+        <span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">02</span>
+        <div>
+          <p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">Selected Partnerships</p>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">A small number of carefully chosen commercial partners — long-term, trust-based and results-oriented.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:1.25rem;padding:1.5rem 0;">
+        <span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">03</span>
+        <div>
+          <p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">European Scope</p>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">Operational presence between Slovenia and international premium markets — with a structured European growth path.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section class="contact-section" id="contact">
-  <p class="section-label">Get in Touch</p>
+  <p class="section-label">Private Inquiries</p>
   <div class="contact-inner">
-    <h3 class="contact-name">Klaudia Jantelj</h3>
-    <p class="contact-location">Ljubljana / Maribor &nbsp;·&nbsp; Slovenia</p>
+    <p class="contact-entity">KLAJANI Group</p>
+    <a href="mailto:klaudia@klajani.com" class="contact-email">klaudia@klajani.com</a>
+    <p class="contact-person">Contact person: Klaudia Jantelj</p>
     <div class="contact-links">
       <a href="https://wa.me/38631200161" class="contact-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -436,10 +722,15 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-logo">KLAJANI Group</span>
-  <span class="footer-copy">© 2026 KLAJANI Group · All rights reserved</span>
+  <div class="footer-right">
+    <div class="footer-links">
+      <a href="legal.html" class="footer-link">Legal</a>
+      <a href="privacy.html" class="footer-link">Privacy</a>
+    </div>
+    <span class="footer-copy">© 2026 KLAJANI Group · All rights reserved</span>
+  </div>
 </footer>
 
 </body>
