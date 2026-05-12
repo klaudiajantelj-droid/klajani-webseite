@@ -9,729 +9,634 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --gold: #B8A06A;
-    --gold-light: #D4BC8A;
-    --dark: #0D0D0D;
-    --dark-2: #1A1A18;
-    --dark-3: #252520;
-    --muted: #8A8A7E;
-    --light: #F7F5F0;
-    --white: #FDFCF9;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    background: var(--dark);
-    color: var(--light);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.75rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to bottom, rgba(13,13,13,0.95) 0%, transparent 100%);
-  }
-
-  .nav-logo {
-    font-family: 'Jost', sans-serif;
-    font-weight: 500;
-    font-size: 0.68rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-  }
-
-  .nav-cta {
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(184,160,106,0.3);
-    padding-bottom: 2px;
-    transition: border-color 0.3s, color 0.3s;
-  }
-
-  .nav-cta:hover { color: var(--gold-light); border-color: var(--gold-light); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 4rem 6rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(184,160,106,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(184,160,106,0.03) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.68rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease forwards 0.2s;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(3.5rem, 8vw, 7.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.01em;
-    color: var(--white);
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 0.4s;
-  }
-
-  .hero-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-    color: var(--gold-light);
-    max-width: 640px;
-    margin-bottom: 2rem;
-    line-height: 1.5;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 0.6s;
-  }
-
-  .hero-text {
-    font-size: 0.9rem;
-    color: var(--muted);
-    max-width: 520px;
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 0.8s;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 1s;
-  }
-
-  .btn-primary:hover { background: var(--gold); color: var(--dark); }
-
-  /* DIVIDER */
-  .divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(184,160,106,0.3), transparent);
-    margin: 0 4rem;
-  }
-
-  /* SECTIONS */
-  .section { padding: 6rem 4rem; }
-
-  .section-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 4rem;
-  }
-
-  .section-label-sm {
-    font-size: 0.65rem;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  /* BUSINESS AREAS — 4 columns */
-  .areas-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-
-  .area-card {
-    padding: 2.5rem 2rem 2.5rem 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .area-card:not(:last-child) {
-    border-right: 1px solid rgba(255,255,255,0.06);
-    padding-right: 2rem;
-  }
-
-  .area-card:not(:first-child) { padding-left: 2rem; }
-
-  .area-number {
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    opacity: 0.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .area-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 1.45rem;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-  }
-
-  .area-tagline {
-    font-size: 0.72rem;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-    margin-bottom: 1.25rem;
-    font-weight: 400;
-  }
-
-  .area-text {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
-  .area-services { list-style: none; margin-top: 1.25rem; }
-
-  .area-services li {
-    font-size: 0.72rem;
-    color: rgba(138,138,126,0.8);
-    padding: 0.3rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .area-services li::before {
-    content: '';
-    width: 12px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.5;
-    flex-shrink: 0;
-  }
-
-  .area-markets {
-    font-size: 0.7rem;
-    color: rgba(138,138,126,0.55);
-    letter-spacing: 0.1em;
-    margin-top: 1rem;
-  }
-
-  .area-badge {
-    display: inline-block;
-    font-size: 0.48rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: rgba(184,160,106,0.28);
-    border: 1px solid rgba(184,160,106,0.07);
-    padding: 0.18rem 0.45rem;
-    margin-top: 1.5rem;
-    line-height: 1.8;
-  }
-
-  /* SELECTED FOCUS */
-  .focus-section {
-    padding: 3.5rem 4rem;
-    background: var(--dark-3);
-  }
-
-  .focus-row {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 2rem;
-  }
-
-  .focus-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.7;
-    min-width: 160px;
-  }
-
-  .focus-keywords {
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .focus-keyword {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 1.35rem;
-    color: rgba(247,245,240,0.5);
-    letter-spacing: 0.05em;
-  }
-
-  /* MARKETS */
-  .markets-section {
-    padding: 6rem 4rem;
-    background: var(--dark-2);
-  }
-
-  .markets-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .market-card {
-    padding: 2.5rem 2rem 2.5rem 0;
-    border-right: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .market-card:not(:first-child) { padding-left: 2rem; }
-  .market-card:last-child { border-right: none; }
-
-  .market-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .market-dot.pending {
-    background: transparent;
-    border: 1px solid rgba(184,160,106,0.3);
-  }
-
-  .market-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    color: var(--white);
-    margin-bottom: 0.25rem;
-    line-height: 1.2;
-  }
-
-  .market-region {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1rem;
-    opacity: 0.7;
-  }
-
-  .market-text {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  .market-ventures { display: flex; flex-direction: column; gap: 0.35rem; }
-
-  .market-venture {
-    font-size: 0.7rem;
-    color: var(--gold);
-    opacity: 0.6;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .market-venture::before {
-    content: '';
-    width: 10px;
-    height: 1px;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  /* ABOUT */
-  .about-section {
-    padding: 6rem 4rem;
-    background: var(--dark-3);
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .about-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(1.4rem, 2.2vw, 2rem);
-    color: var(--light);
-    line-height: 1.55;
-    margin-bottom: 1.75rem;
-    opacity: 0.9;
-  }
-
-  .about-body {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.85;
-    max-width: 380px;
-  }
-
-  /* CONTACT */
-  .contact-section {
-    padding: 5rem 4rem 6rem;
-    background: var(--dark-2);
-  }
-
-  .contact-inner { max-width: 600px; }
-
-  .contact-entity {
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 0.88rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--light);
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-email {
-    font-size: 0.82rem;
-    color: var(--gold-light);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid rgba(212,188,138,0.3);
-    padding-bottom: 2px;
-    transition: color 0.3s, border-color 0.3s;
-    display: inline-block;
-    margin-bottom: 2.5rem;
-  }
-
-  .contact-email:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
-
-  .contact-person {
-    font-size: 0.6rem;
-    color: rgba(138,138,126,0.28);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(212,188,138,0.45);
-    padding-bottom: 3px;
-    transition: color 0.3s, border-color 0.3s;
-  }
-
-  .contact-link:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
-  .contact-link svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-  /* FOOTER */
-  footer {
-    padding: 2rem 4rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-logo {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .footer-right {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .footer-copy {
-    font-size: 0.65rem;
-    color: rgba(138,138,126,0.5);
-    letter-spacing: 0.05em;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .footer-link {
-    font-size: 0.63rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(138,138,126,0.45);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-link:hover { color: var(--muted); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 1.5rem 1.75rem; }
-    .hero { padding: 7rem 1.75rem 4rem; }
-    .divider { margin: 0 1.75rem; }
-    .section { padding: 4rem 1.75rem; }
-    .areas-grid { grid-template-columns: 1fr 1fr; }
-    .area-card { padding: 1.75rem 1rem 1.75rem 0; }
-    .area-card:nth-child(2n) { border-right: none; padding-right: 0; }
-    .area-card:nth-child(2n+1):not(:first-child) { padding-left: 0; }
-    .area-card:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 0; }
-    .focus-section { padding: 2.5rem 1.75rem; }
-    .focus-row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-    .focus-keywords { gap: 1.5rem; }
-    .focus-keyword { font-size: 1.1rem; }
-    .markets-section { padding: 4rem 1.75rem; }
-    .markets-grid { grid-template-columns: 1fr; }
-    .market-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 2rem 0 !important; }
-    .market-card:last-child { border-bottom: none; }
-    .about-section { padding: 4rem 1.75rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .contact-section { padding: 4rem 1.75rem; }
-    footer { padding: 1.5rem 1.75rem; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-    .footer-right { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-  }
-
-  @media (max-width: 480px) {
-    .areas-grid { grid-template-columns: 1fr; }
-    .area-card { padding: 2rem 0 !important; border-right: none !important; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--gold: #B8A06A;
+--gold-light: #D4BC8A;
+--dark: #0D0D0D;
+--dark-2: #1A1A18;
+--dark-3: #252520;
+--muted: #8A8A7E;
+--light: #F7F5F0;
+--white: #FDFCF9;
+}
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Jost', sans-serif;
+font-weight: 300;
+background: var(--dark);
+color: var(--light);
+line-height: 1.7;
+-webkit-font-smoothing: antialiased;
+}
+/* NAV */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+padding: 1.75rem 4rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: linear-gradient(to bottom, rgba(13,13,13,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+font-family: 'Jost', sans-serif;
+font-weight: 500;
+font-size: 0.68rem;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(--white);
+text-decoration: none;
+}
+.nav-cta {
+font-size: 0.72rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(--gold);
+text-decoration: none;
+border-bottom: 1px solid rgba(184,160,106,0.3);
+padding-bottom: 2px;
+transition: border-color 0.3s, color 0.3s;
+}
+.nav-cta:hover { color: var(--gold-light); border-color: var(--gold-light); }
+/* HERO */
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 8rem 4rem 6rem;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+background:
+radial-gradient(ellipse 60% 50% at 70% 50%, rgba(184,160,106,0.06) 0%, transparent 70%),
+radial-gradient(ellipse 40% 60% at 20% 80%, rgba(184,160,106,0.03) 0%, transparent 60%);
+pointer-events: none;
+}
+.hero-eyebrow {
+font-size: 0.68rem;
+letter-spacing: 0.4em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 2rem;
+opacity: 0;
+animation: fadeUp 0.9s ease forwards 0.2s;
+}
+.hero h1 {
+font-family: 'Cormorant Garamond', serif;
+font-weight: 300;
+font-size: clamp(3.5rem, 8vw, 7.5rem);
+line-height: 0.95;
+letter-spacing: -0.01em;
+color: var(--white);
+margin-bottom: 2rem;
+opacity: 0;
+animation: fadeUp 1s ease forwards 0.4s;
+}
+.hero-sub {
+font-family: 'Cormorant Garamond', serif;
+font-weight: 300;
+font-style: italic;
+font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+color: var(--gold-light);
+max-width: 640px;
+margin-bottom: 2rem;
+line-height: 1.5;
+opacity: 0;
+animation: fadeUp 1s ease forwards 0.6s;
+}
+.hero-text {
+font-size: 0.9rem;
+color: var(--muted);
+max-width: 520px;
+line-height: 1.8;
+margin-bottom: 3rem;
+opacity: 0;
+animation: fadeUp 1s ease forwards 0.8s;
+}
+.btn-primary {
+display: inline-block;
+padding: 1rem 2.5rem;
+border: 1px solid var(--gold);
+color: var(--gold);
+font-family: 'Jost', sans-serif;
+font-weight: 400;
+font-size: 0.72rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+text-decoration: none;
+transition: background 0.3s, color 0.3s;
+opacity: 0;
+animation: fadeUp 1s ease forwards 1s;
+}
+.btn-primary:hover { background: var(--gold); color: var(--dark); }
+/* DIVIDER */
+.divider {
+height: 1px;
+background: linear-gradient(to right, transparent, rgba(184,160,106,0.3), transparent);
+margin: 0 4rem;
+}
+/* SECTIONS */
+.section { padding: 6rem 4rem; }
+.section-label {
+font-size: 0.65rem;
+letter-spacing: 0.45em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 4rem;
+}
+.section-label-sm {
+font-size: 0.65rem;
+letter-spacing: 0.45em;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 1.5rem;
+}
+/* BUSINESS AREAS — 4 columns */
+.areas-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0;
+}
+.area-card {
+padding: 2.5rem 2rem 2.5rem 0;
+border-top: 1px solid rgba(255,255,255,0.06);
+}
+.area-card:not(:last-child) {
+border-right: 1px solid rgba(255,255,255,0.06);
+padding-right: 2rem;
+}
+.area-card:not(:first-child) { padding-left: 2rem; }
+.area-number {
+font-size: 0.6rem;
+letter-spacing: 0.3em;
+color: var(--gold);
+opacity: 0.7;
+margin-bottom: 1.5rem;
+}
+.area-title {
+font-family: 'Cormorant Garamond', serif;
+font-weight: 400;
+font-size: 1.45rem;
+color: var(--white);
+margin-bottom: 0.5rem;
+line-height: 1.2;
+}
+.area-tagline {
+font-size: 0.72rem;
+color: var(--gold);
+letter-spacing: 0.05em;
+margin-bottom: 1.25rem;
+font-weight: 400;
+}
+.area-text {
+font-size: 0.8rem;
+color: var(--muted);
+line-height: 1.8;
+}
+.area-services { list-style: none; margin-top: 1.25rem; }
+.area-services li {
+font-size: 0.72rem;
+color: rgba(138,138,126,0.8);
+padding: 0.3rem 0;
+border-bottom: 1px solid rgba(255,255,255,0.04);
+letter-spacing: 0.05em;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+.area-services li::before {
+content: '';
+width: 12px;
+height: 1px;
+background: var(--gold);
+opacity: 0.5;
+flex-shrink: 0;
+}
+.area-markets {
+font-size: 0.7rem;
+color: rgba(138,138,126,0.55);
+letter-spacing: 0.1em;
+margin-top: 1rem;
+}
+.area-badge {
+display: inline-block;
+font-size: 0.48rem;
+letter-spacing: 0.09em;
+text-transform: uppercase;
+color: rgba(184,160,106,0.28);
+border: 1px solid rgba(184,160,106,0.07);
+padding: 0.18rem 0.45rem;
+margin-top: 1.5rem;
+line-height: 1.8;
+}
+/* SELECTED FOCUS */
+.focus-section {
+padding: 3.5rem 4rem;
+background: var(--dark-3);
+}
+.focus-row {
+display: flex;
+align-items: center;
+gap: 0;
+border-top: 1px solid rgba(255,255,255,0.06);
+padding-top: 2rem;
+}
+.focus-label {
+font-size: 0.62rem;
+letter-spacing: 0.4em;
+text-transform: uppercase;
+color: var(--gold);
+opacity: 0.7;
+min-width: 160px;
+}
+.focus-keywords {
+display: flex;
+gap: 3rem;
+flex-wrap: wrap;
+}
+.focus-keyword {
+font-family: 'Cormorant Garamond', serif;
+font-weight: 300;
+font-size: 1.35rem;
+color: rgba(247,245,240,0.5);
+letter-spacing: 0.05em;
+}
+/* MARKETS */
+.markets-section {
+padding: 6rem 4rem;
+background: var(--dark-2);
+}
+.markets-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 0;
+border-top: 1px solid rgba(255,255,255,0.06);
+}
+.market-card {
+padding: 2.5rem 2rem 2.5rem 0;
+border-right: 1px solid rgba(255,255,255,0.06);
+}
+.market-card:not(:first-child) { padding-left: 2rem; }
+.market-card:last-child { border-right: none; }
+.market-dot {
+width: 5px;
+height: 5px;
+border-radius: 50%;
+background: var(--gold);
+margin-bottom: 1.5rem;
+}
+.market-dot.pending {
+background: transparent;
+border: 1px solid rgba(184,160,106,0.3);
+}
+.market-name {
+font-family: 'Cormorant Garamond', serif;
+font-weight: 400;
+font-size: 1.5rem;
+color: var(--white);
+margin-bottom: 0.25rem;
+line-height: 1.2;
+}
+.market-region {
+font-size: 0.68rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--muted);
+margin-bottom: 1rem;
+opacity: 0.7;
+}
+.market-text {
+font-size: 0.8rem;
+color: var(--muted);
+line-height: 1.8;
+margin-bottom: 1rem;
+}
+.market-ventures { display: flex; flex-direction: column; gap: 0.35rem; }
+.market-venture {
+font-size: 0.7rem;
+color: var(--gold);
+opacity: 0.6;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+.market-venture::before {
+content: '';
+width: 10px;
+height: 1px;
+background: var(--gold);
+flex-shrink: 0;
+}
+/* ABOUT */
+.about-section {
+padding: 6rem 4rem;
+background: var(--dark-3);
+}
+.about-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 6rem;
+align-items: start;
+}
+.about-quote {
+font-family: 'Cormorant Garamond', serif;
+font-style: italic;
+font-weight: 300;
+font-size: clamp(1.4rem, 2.2vw, 2rem);
+color: var(--light);
+line-height: 1.55;
+margin-bottom: 1.75rem;
+opacity: 0.9;
+}
+.about-body {
+font-size: 0.82rem;
+color: var(--muted);
+line-height: 1.85;
+max-width: 380px;
+}
+/* CONTACT */
+.contact-section {
+padding: 5rem 4rem 6rem;
+background: var(--dark-2);
+}
+.contact-inner { max-width: 600px; }
+.contact-entity {
+font-family: 'Jost', sans-serif;
+font-weight: 400;
+font-size: 0.88rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--light);
+margin-bottom: 0.5rem;
+}
+.contact-email {
+font-size: 0.82rem;
+color: var(--gold-light);
+text-decoration: none;
+letter-spacing: 0.05em;
+border-bottom: 1px solid rgba(212,188,138,0.3);
+padding-bottom: 2px;
+transition: color 0.3s, border-color 0.3s;
+display: inline-block;
+margin-bottom: 2.5rem;
+}
+.contact-email:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+.contact-person {
+font-size: 0.6rem;
+color: rgba(138,138,126,0.28);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+margin-bottom: 2rem;
+}
+.contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.contact-link {
+display: flex;
+align-items: center;
+gap: 0.6rem;
+font-size: 0.78rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--gold-light);
+text-decoration: none;
+border-bottom: 1px solid rgba(212,188,138,0.45);
+padding-bottom: 3px;
+transition: color 0.3s, border-color 0.3s;
+}
+.contact-link:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+.contact-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+/* FOOTER */
+footer {
+padding: 2rem 4rem;
+border-top: 1px solid rgba(255,255,255,0.05);
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.footer-logo {
+font-size: 0.7rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(--muted);
+}
+.footer-right {
+display: flex;
+align-items: center;
+gap: 2rem;
+}
+.footer-copy {
+font-size: 0.65rem;
+color: rgba(138,138,126,0.5);
+letter-spacing: 0.05em;
+}
+.footer-links {
+display: flex;
+gap: 1.5rem;
+}
+.footer-link {
+font-size: 0.63rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: rgba(138,138,126,0.45);
+text-decoration: none;
+transition: color 0.3s;
+}
+.footer-link:hover { color: var(--muted); }
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to { opacity: 1; transform: translateY(0); }
+}
+/* RESPONSIVE */
+@media (max-width: 900px) {
+nav { padding: 1.5rem 1.75rem; }
+.hero { padding: 7rem 1.75rem 4rem; }
+.divider { margin: 0 1.75rem; }
+.section { padding: 4rem 1.75rem; }
+.areas-grid { grid-template-columns: 1fr 1fr; }
+.area-card { padding: 1.75rem 1rem 1.75rem 0; }
+.area-card:nth-child(2n) { border-right: none; padding-right: 0; }
+.area-card:nth-child(2n+1):not(:first-child) { padding-left: 0; }
+.area-card:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 0; }
+.focus-section { padding: 2.5rem 1.75rem; }
+.focus-row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+.focus-keywords { gap: 1.5rem; }
+.focus-keyword { font-size: 1.1rem; }
+.markets-section { padding: 4rem 1.75rem; }
+.markets-grid { grid-template-columns: 1fr; }
+.market-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 2rem 0 !important; }
+.market-card:last-child { border-bottom: none; }
+.about-section { padding: 4rem 1.75rem; }
+.about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+.contact-section { padding: 4rem 1.75rem; }
+footer { padding: 1.5rem 1.75rem; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+.footer-right { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+}
+@media (max-width: 480px) {
+.areas-grid { grid-template-columns: 1fr; }
+.area-card { padding: 2rem 0 !important; border-right: none !important; }
+}
 </style>
 </head>
 <body>
-
 <nav>
-  <a href="index.html" class="nav-logo">KLAJANI Group</a>
-  <a href="#contact" class="nav-cta">Private Inquiries</a>
+<a href="index.html" class="nav-logo">KLAJANI Group</a>
+<a href="#contact" class="nav-cta">Private Inquiries</a>
 </nav>
-
 <section class="hero">
-  <p class="hero-eyebrow">Private Commercial Group · International</p>
-  <h1>KLAJANI<br><span style="font-size: 0.7em;">Group</span></h1>
-  <p class="hero-sub">An independent commercial platform for strategic opportunities, premium ventures and selected partnerships.</p>
-  <p class="hero-text">KLAJANI Group operates as an independent asset platform — built for scalable positioning, selected deal flow and long-term market value across European premium segments.</p>
-  <a href="#ventures" class="btn-primary">Explore our ventures</a>
+<p class="hero-eyebrow">Private Commercial Group · International</p>
+<h1>KLAJANI<br><span style="font-size: 0.7em;">Group</span></h1>
+<p class="hero-sub">An independent commercial platform for strategic opportunities, premium ventures and selected partnerships.</p>
+<p class="hero-text">KLAJANI Group operates as an independent asset platform — built for scalable positioning, selected deal flow and long-term market value across European premium segments.</p>
+<a href="#ventures" class="btn-primary">Explore our ventures</a>
 </section>
-
 <div class="divider"></div>
-
 <section class="section" id="ventures">
-  <p class="section-label">Business Verticals</p>
-  <div class="areas-grid">
-
-    <div class="area-card">
-      <p class="area-number">01</p>
-      <h2 class="area-title">Strategic<br>Opportunities</h2>
-      <p class="area-tagline">Selected asset introductions</p>
-      <p class="area-text">Selected hospitality assets, private real estate opportunities, land opportunities and strategic introductions.</p>
-    </div>
-
-    <div class="area-card">
-      <p class="area-number">02</p>
-      <h2 class="area-title">Visibility<br>Networks</h2>
-      <p class="area-tagline">Curated premium visibility</p>
-      <p class="area-text">Curated premium visibility networks in selected high-end environments.</p>
-      <p class="area-markets">Current markets: Mallorca · Slovenia</p>
-    </div>
-
-    <div class="area-card">
-      <p class="area-number">03</p>
-      <h2 class="area-title">Automotive<br>Precision</h2>
-      <p class="area-tagline">Automotive Precision</p>
-      <p class="area-text">Specialised smart repair, cosmetic correction and preservation for selected premium and collector vehicles.</p>
-    </div>
-
-    <div class="area-card">
-      <p class="area-number">04</p>
-      <h2 class="area-title">Strategic<br>Partnerships</h2>
-      <p class="area-tagline">Selected strategic partnerships</p>
-      <p class="area-text">Selected event partnerships and commercial activations — strategic collaborations with premium positioning and long-term value.</p>
-      <span class="area-badge">WDSF Dutch Shepherd World Championship 2026 — Official Digital Partner & Commercial Operations</span>
-    </div>
-
-  </div>
+<p class="section-label">Business Verticals</p>
+<div class="areas-grid">
+<div class="area-card">
+<p class="area-number">01</p>
+<h2 class="area-title">Strategic<br>Opportunities</h2>
+<p class="area-tagline">Curated off-market access</p>
+<p class="area-text">Curated off-market opportunities in hospitality, private real estate, aviation and strategic land assets — shared exclusively within a closed network of qualified principals.</p>
+</div>
+<div class="area-card">
+<p class="area-number">02</p>
+<h2 class="area-title">Visibility<br>Networks</h2>
+<p class="area-tagline">Curated premium visibility</p>
+<p class="area-text">Curated premium visibility networks in selected high-end environments.</p>
+<p class="area-markets">Current markets: Mallorca · Slovenia</p>
+</div>
+<div class="area-card">
+<p class="area-number">03</p>
+<h2 class="area-title">Automotive<br>Precision</h2>
+<p class="area-tagline">Automotive Precision</p>
+<p class="area-text">Specialised smart repair, cosmetic correction and preservation for selected premium and collector vehicles.</p>
+</div>
+<div class="area-card">
+<p class="area-number">04</p>
+<h2 class="area-title">Strategic<br>Partnerships</h2>
+<p class="area-tagline">Selected strategic partnerships</p>
+<p class="area-text">Selected event partnerships and commercial activations — strategic collaborations with premium positioning and long-term value.</p>
+<span class="area-badge">WDSF Dutch Shepherd World Championship 2026 — Official Digital Partner & Commercial Operations</span>
+</div>
+</div>
 </section>
-
 <div class="divider"></div>
-
 <section class="focus-section">
-  <div class="focus-row">
-    <span class="focus-label">Selected Focus</span>
-    <div class="focus-keywords">
-      <span class="focus-keyword">Access</span>
-      <span class="focus-keyword">Structure</span>
-      <span class="focus-keyword">Positioning</span>
-      <span class="focus-keyword">Partnerships</span>
-    </div>
-  </div>
+<div class="focus-row">
+<span class="focus-label">Selected Focus</span>
+<div class="focus-keywords">
+<span class="focus-keyword">Access</span>
+<span class="focus-keyword">Structure</span>
+<span class="focus-keyword">Positioning</span>
+<span class="focus-keyword">Partnerships</span>
+</div>
+</div>
 </section>
-
 <div class="divider"></div>
-
 <section class="markets-section" id="markets">
-  <p class="section-label">Active Markets</p>
-  <div class="markets-grid">
-
-    <div class="market-card">
-      <div class="market-dot"></div>
-      <h3 class="market-name">Mallorca</h3>
-      <p class="market-region">Balearic Islands · Spain</p>
-      <p class="market-text">Premium visibility placements in carefully selected locations across the island's most prestigious environments.</p>
-      <div class="market-ventures">
-        <span class="market-venture">Mallorca Desk</span>
-      </div>
-    </div>
-
-    <div class="market-card">
-      <div class="market-dot"></div>
-      <h3 class="market-name">Slovenia</h3>
-      <p class="market-region">Central Europe</p>
-      <p class="market-text">Premium visibility network operating across Ljubljana, Maribor and selected business environments.</p>
-      <div class="market-ventures">
-        <span class="market-venture">Slovenia Desk</span>
-      </div>
-    </div>
-
-    <div class="market-card">
-      <div class="market-dot pending"></div>
-      <h3 class="market-name">Expansion</h3>
-      <p class="market-region">In Preparation</p>
-      <p class="market-text">Further European markets are currently under evaluation as part of KLAJANI Group's long-term positioning strategy.</p>
-    </div>
-
-  </div>
+<p class="section-label">Active Markets</p>
+<div class="markets-grid">
+<div class="market-card">
+<div class="market-dot"></div>
+<h3 class="market-name">Mallorca</h3>
+<p class="market-region">Balearic Islands · Spain</p>
+<p class="market-text">Premium visibility placements in carefully selected locations across the island's most prestigious environments.</p>
+<div class="market-ventures">
+<span class="market-venture">Mallorca Desk</span>
+</div>
+</div>
+<div class="market-card">
+<div class="market-dot"></div>
+<h3 class="market-name">Slovenia</h3>
+<p class="market-region">Central Europe</p>
+<p class="market-text">Premium visibility network operating across Ljubljana, Maribor and selected business environments.</p>
+<div class="market-ventures">
+<span class="market-venture">Slovenia Desk</span>
+</div>
+</div>
+<div class="market-card">
+<div class="market-dot pending"></div>
+<h3 class="market-name">Expansion</h3>
+<p class="market-region">In Preparation</p>
+<p class="market-text">Further European markets are currently under evaluation as part of KLAJANI Group's long-term positioning strategy.</p>
+</div>
+</div>
 </section>
-
 <div class="divider"></div>
-
 <section class="about-section" id="about">
-  <div class="about-grid">
-    <div>
-      <p class="section-label-sm">About</p>
-      <p class="about-quote">Built on trust, access and long-term value.</p>
-      <p class="about-body">KLAJANI Group operates through selected opportunities, premium ventures and strategic introductions — focused on quality, discretion and long-term value.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,0.06);padding-top:0;">
-      <div style="display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);">
-        <span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">01</span>
-        <div>
-          <p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">Premium Positioning</p>
-          <p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">Each vertical operates in a clearly defined premium segment — focused on quality, selectivity and transferable brand value.</p>
-        </div>
-      </div>
-      <div style="display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);">
-        <span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">02</span>
-        <div>
-          <p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">Selected Partnerships</p>
-          <p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">A small number of carefully chosen commercial partners — long-term, trust-based and results-oriented.</p>
-        </div>
-      </div>
-      <div style="display:flex;gap:1.25rem;padding:1.5rem 0;">
-        <span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">03</span>
-        <div>
-          <p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">European Scope</p>
-          <p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">Operational presence between Slovenia and international premium markets — with a structured European growth path.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="about-grid">
+<div>
+<p class="section-label-sm">About</p>
+<p class="about-quote">Built on trust, access and long-term value.</p>
+<p class="about-body">KLAJANI Group operates through selected opportunities, premium ventures and strategic introductions — focused on quality, discretion and long-term value.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,0.06);padding-top:0;">
+<div style="display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+<span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">01</span>
+<div>
+<p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">Premium Positioning</p>
+<p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">Each vertical operates in a clearly defined premium segment — focused on quality, selectivity and transferable brand value.</p>
+</div>
+</div>
+<div style="display:flex;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+<span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">02</span>
+<div>
+<p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">Selected Partnerships</p>
+<p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">A small number of carefully chosen commercial partners — long-term, trust-based and results-oriented.</p>
+</div>
+</div>
+<div style="display:flex;gap:1.25rem;padding:1.5rem 0;">
+<span style="font-size:0.58rem;letter-spacing:0.25em;color:var(--gold);padding-top:0.1rem;min-width:20px;opacity:0.8;">03</span>
+<div>
+<p style="font-size:0.78rem;font-weight:500;color:var(--light);letter-spacing:0.06em;margin-bottom:0.3rem;">European Scope</p>
+<p style="font-size:0.78rem;color:var(--muted);line-height:1.75;">Operational presence between Slovenia and international premium markets — with a structured European growth path.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <div class="divider"></div>
-
 <section class="contact-section" id="contact">
-  <p class="section-label">Private Inquiries</p>
-  <div class="contact-inner">
-    <p class="contact-entity">KLAJANI Group</p>
-    <a href="mailto:klaudia@klajani.com" class="contact-email">klaudia@klajani.com</a>
-    <p class="contact-person">Contact person: Klaudia Jantelj</p>
-    <div class="contact-links">
-      <a href="https://wa.me/38631200161" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        </svg>
-        WhatsApp
-      </a>
-      <a href="mailto:klaudia@klajani.com" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        Email
-      </a>
-    </div>
-  </div>
+<p class="section-label">Private Inquiries</p>
+<div class="contact-inner">
+<p class="contact-entity">KLAJANI Group</p>
+<a href="mailto:klaudia@klajani.com" class="contact-email">klaudia@klajani.com</a>
+<p class="contact-person">Contact person: Klaudia Jantelj</p>
+<div class="contact-links">
+<a href="https://wa.me/38631200161" class="contact-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+</svg>
+WhatsApp
+</a>
+<a href="mailto:klaudia@klajani.com" class="contact-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+<polyline points="22,6 12,13 2,6"/>
+</svg>
+Email
+</a>
+</div>
+</div>
 </section>
-
 <footer>
-  <span class="footer-logo">KLAJANI Group</span>
-  <div class="footer-right">
-    <div class="footer-links">
-      <a href="legal.html" class="footer-link">Legal</a>
-      <a href="privacy.html" class="footer-link">Privacy</a>
-    </div>
-    <span class="footer-copy">© 2026 KLAJANI Group · All rights reserved</span>
-  </div>
+<span class="footer-logo">KLAJANI Group</span>
+<div class="footer-right">
+<div class="footer-links">
+<a href="legal.html" class="footer-link">Legal</a>
+<a href="privacy.html" class="footer-link">Privacy</a>
+</div>
+<span class="footer-copy">© 2026 KLAJANI Group · All rights reserved</span>
+</div>
 </footer>
-
 </body>
 </html>
