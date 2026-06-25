@@ -1,357 +1,1224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KLAJANI GROUP — Private Premium Ventures</title>
-<meta name="description" content="KLAJANI GROUP — Private access to selected ventures, off-market opportunities and trusted relationships across international markets.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --black: #0a0a0a;
-  --off-black: #111111;
-  --dark: #1a1a1a;
-  --dark-mid: #222222;
-  --mid: #2e2e2e;
-  --mid-light: #3a3a3a;
-  --warm-dark: #252320;
-  --warm-mid: #2e2b27;
-  --warm-light: #3d3a34;
-  --muted: #6b6b6b;
-  --light-muted: #9a9a9a;
-  --border-dark: rgba(255,255,255,0.07);
-  --border-mid: rgba(255,255,255,0.12);
-  --border-light: rgba(0,0,0,0.10);
-  --gold: #b8965a;
-  --gold-light: #c9a96e;
-  --gold-pale: rgba(184,150,90,0.10);
-  --cream: #f0ebe0;
-  --cream-dark: #e8e2d6;
-  --sand: #d4ccbc;
-  --linen: #f5f0e8;
-  --off-white: #fafaf8;
-  --white: #ffffff;
-  --text-dark: rgba(255,255,255,0.85);
-  --text-dark-mid: rgba(255,255,255,0.55);
-  --text-dark-muted: rgba(255,255,255,0.35);
-  --text-light: #1a1a1a;
-  --text-light-mid: rgba(0,0,0,0.55);
-  --text-light-muted: rgba(0,0,0,0.35);
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Inter', -apple-system, sans-serif;
-}
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--black); color: var(--text-dark); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KLAJANI Group — Private Business Group</title>
+  <meta name="description" content="KLAJANI Group is a private international business group operating across five premium divisions: Visibility, Yachting, Premium Care, Safety, and Ventures. Discreet. Strategic. Long-term." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="KLAJANI Group" />
+  <meta property="og:description" content="Private business group. Five divisions. Selected partnerships." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://klajani.com" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
-/* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 72px; background: rgba(10,10,10,0.90); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-dark); transition: background 0.3s; }
-.nav-logo { font-family: var(--serif); font-size: 19px; font-weight: 400; letter-spacing: 0.20em; color: var(--white); text-decoration: none; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-.nav-logo .sep { display: block; width: 1px; height: 16px; background: var(--gold); opacity: 0.7; }
-.nav-logo .group { font-size: 11px; font-weight: 300; letter-spacing: 0.22em; color: var(--gold); }
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a { font-family: var(--sans); font-size: 10px; font-weight: 400; letter-spacing: 0.20em; text-transform: uppercase; color: var(--text-dark-mid); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--white); }
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────── */
+    :root {
+      --ink:        #1a1a18;
+      --ink-soft:   #3a3a36;
+      --muted:      #8a8a82;
+      --rule:       #d4d0c8;
+      --cream:      #f7f5f0;
+      --gold:       #b89a5a;
+      --gold-light: #d4b87a;
+      --white:      #ffffff;
 
-/* HERO */
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 60px 100px; background: var(--black); position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse 70% 60% at 60% 30%, rgba(184,150,90,0.05) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(255,255,255,0.015) 0%, transparent 60%); pointer-events: none; }
-.hero-mark { font-family: var(--serif); font-size: clamp(80px, 14vw, 200px); font-weight: 300; line-height: 1.0; color: rgba(255,255,255,0.04); letter-spacing: -0.02em; position: absolute; top: 50%; right: 40px; transform: translateY(-55%); pointer-events: none; user-select: none; }
-.hero-eyebrow { font-size: 10px; font-weight: 300; letter-spacing: 0.30em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
-.hero-title { font-family: var(--serif); font-size: clamp(38px, 5.5vw, 74px); font-weight: 300; line-height: 1.18; color: var(--white); margin-bottom: 28px; max-width: 780px; }
-.hero-sub { font-family: var(--serif); font-size: clamp(15px, 1.6vw, 20px); font-weight: 300; font-style: italic; color: var(--text-dark-mid); max-width: 600px; line-height: 1.65; margin-bottom: 52px; }
-.hero-cta { display: inline-block; font-size: 10px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); border: 1px solid rgba(255,255,255,0.22); padding: 14px 38px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-.hero-cta:hover { border-color: rgba(255,255,255,0.55); }
-.hero-scroll { position: absolute; bottom: 36px; right: 60px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.hero-scroll span { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-dark-muted); transform: rotate(90deg); }
-.hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--gold)); }
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', system-ui, sans-serif;
 
-/* PHILOSOPHY */
-.philosophy { padding: 100px 60px; background: var(--off-black); border-top: 1px solid var(--border-dark); }
-.philosophy-inner { max-width: 1000px; margin: 0 auto; }
-.section-label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
-.philosophy-quote { font-family: var(--serif); font-size: clamp(24px, 3vw, 40px); font-weight: 300; font-style: italic; line-height: 1.45; color: var(--text-dark); border-left: 1px solid var(--gold); padding-left: 32px; margin-bottom: 40px; }
-.philosophy-body { font-size: 14px; font-weight: 300; line-height: 1.80; color: var(--text-dark-mid); max-width: 660px; }
+      --max: 1240px;
+      --gap: clamp(2rem, 5vw, 5rem);
+    }
 
-/* DIVISIONS */
-.divisions { padding: 100px 60px; background: var(--dark); border-top: 1px solid var(--border-dark); }
-.divisions-inner { max-width: 1200px; margin: 0 auto; }
-.divisions-header { margin-bottom: 60px; }
-.section-heading { font-family: var(--serif); font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.15; color: var(--white); margin-bottom: 16px; }
-.section-sub { font-size: 13px; font-weight: 300; color: var(--text-dark-muted); letter-spacing: 0.04em; }
-.divisions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
-.division-card { background: var(--dark); padding: 44px 36px; position: relative; transition: background 0.25s; cursor: default; }
-.division-card:hover { background: #1f1f1f; }
-.division-card.featured { background: #181614; }
-.division-card.featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gold); }
-.division-num { font-family: var(--serif); font-size: 13px; color: var(--gold); letter-spacing: 0.10em; margin-bottom: 24px; display: block; }
-.division-name { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
-.division-sub { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--gold-light); margin-bottom: 18px; }
-.division-body { font-size: 13px; font-weight: 300; line-height: 1.70; color: var(--text-dark-mid); }
-.division-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
-.tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dark-muted); border: 1px solid var(--border-dark); padding: 4px 10px; }
-.division-link { display: inline-block; margin-top: 20px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,150,90,0.25); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-.division-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    /* ─── RESET ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-/* APPROACH — transitions to light */
-.approach { padding: 100px 60px; background: var(--warm-dark); border-top: 1px solid var(--border-dark); }
-.approach-inner { max-width: 1100px; margin: 0 auto; }
-.approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.approach-heading { font-family: var(--serif); font-size: clamp(30px, 3.5vw, 48px); font-weight: 300; line-height: 1.20; color: var(--white); margin-bottom: 24px; }
-.approach-body { font-size: 14px; font-weight: 300; line-height: 1.80; color: var(--text-dark-mid); }
-.approach-list { list-style: none; margin-top: 32px; }
-.approach-list li { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border-dark); align-items: flex-start; }
-.approach-list li:first-child { border-top: 1px solid var(--border-dark); }
-.approach-num { font-family: var(--serif); font-size: 12px; color: var(--gold); min-width: 24px; padding-top: 2px; }
-.approach-text { font-size: 13px; font-weight: 300; color: var(--text-dark-mid); line-height: 1.65; }
+    /* ─── UTILITY ─────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: clamp(1.5rem, 5vw, 4rem);
+    }
+    .eyebrow {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .rule-h {
+      width: 100%;
+      height: 1px;
+      background: var(--rule);
+      border: none;
+    }
 
-/* ABOUT */
-.about { padding: 100px 60px; background: var(--cream); border-top: 1px solid var(--border-light); }
-.about-inner { max-width: 1000px; margin: 0 auto; }
-.about .section-label { color: #8c6d3a; }
-.about-heading { font-family: var(--serif); font-size: clamp(34px, 4vw, 54px); font-weight: 300; line-height: 1.15; color: var(--off-black); margin-bottom: 28px; }
-.about-body { font-size: 15px; font-weight: 300; line-height: 1.80; color: var(--text-light-mid); max-width: 700px; margin-bottom: 20px; }
-.about-principle { font-family: var(--serif); font-size: clamp(18px, 2vw, 26px); font-weight: 300; font-style: italic; color: #6b5230; margin: 40px 0; padding-left: 28px; border-left: 1px solid var(--gold); line-height: 1.50; }
-.about-footer-text { font-size: 13px; font-weight: 300; color: var(--text-light-muted); line-height: 1.75; }
+    /* ─── NAV ─────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.3s;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .nav-logo span {
+      color: var(--gold);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 0.68rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.16em !important;
+      color: var(--gold) !important;
+      border: 1px solid var(--gold);
+      padding: 0.45rem 1.1rem;
+      transition: background 0.2s, color 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--white) !important;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
 
-/* CONTACT */
-.contact { padding: 100px 60px; background: var(--linen); border-top: 1px solid var(--border-light); }
-.contact-inner { max-width: 800px; margin: 0 auto; text-align: center; }
-.contact .section-label { color: #8c6d3a; text-align: center; }
-.contact-heading { font-family: var(--serif); font-size: clamp(36px, 5vw, 68px); font-weight: 300; line-height: 1.10; color: var(--off-black); margin-bottom: 20px; }
-.contact-sub { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: rgba(0,0,0,0.45); margin-bottom: 52px; line-height: 1.55; }
-.contact-email { font-family: var(--serif); font-size: clamp(18px, 2vw, 24px); font-weight: 300; color: var(--off-black); text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.20); padding-bottom: 3px; transition: border-color 0.2s; letter-spacing: 0.02em; }
-.contact-email:hover { border-color: var(--gold); color: #6b5230; }
-.contact-note { font-size: 11px; letter-spacing: 0.14em; color: var(--text-light-muted); margin-top: 20px; text-transform: uppercase; }
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 64px;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 45%, rgba(184,154,90,0.07) 0%, transparent 65%),
+        linear-gradient(160deg, #1a1a18 0%, #0e0e0c 100%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212,208,200,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,208,200,0.025) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding-block: clamp(3rem, 8vh, 6rem);
+    }
+    /* Brand wordmark — the focal point */
+    .hero-wordmark {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .hero-wordmark-group {
+      font-family: var(--serif);
+      font-size: clamp(0.95rem, 2vw, 1.52rem);
+      font-weight: 400;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: clamp(2.5rem, 5vh, 4rem);
+    }
+    /* Gold rule divider */
+    .hero-rule {
+      width: clamp(40px, 8vw, 80px);
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+      margin-bottom: clamp(2rem, 4vh, 3.5rem);
+    }
+    /* Descriptor — "Private Business Group" */
+    .hero-descriptor {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: clamp(2.5rem, 5vh, 4rem);
+    }
+    /* Signature line — reduced, quiet */
+    .hero-signature {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 1.8vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+      margin-bottom: clamp(2.5rem, 5vh, 4rem);
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 0.85rem 2rem;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+    .btn-ghost {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost::after {
+      content: ' →';
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      right: clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 1;
+    }
+    .hero-scroll span {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      writing-mode: vertical-rl;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.15), transparent);
+      animation: scrollPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
 
-/* FOOTER */
-footer { background: var(--off-black); border-top: 1px solid var(--border-dark); padding: 48px 60px; }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 40px; }
-.footer-logo { font-family: var(--serif); font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.30); }
-.footer-logo span { color: var(--gold); }
-.footer-tagline { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.22); text-align: center; line-height: 1.8; }
-.footer-links { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-.footer-links a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.22); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: rgba(255,255,255,0.55); }
-.footer-copy { text-align: center; margin-top: 32px; font-size: 10px; color: rgba(255,255,255,0.15); letter-spacing: 0.06em; padding-top: 24px; border-top: 1px solid var(--border-dark); }
+    /* ─── CURRENT FOCUS ──────────────────────────────── */
+    #focus {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-block: 1.75rem;
+    }
+    .focus-inner {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 4rem);
+      flex-wrap: wrap;
+    }
+    .focus-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .focus-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+    .focus-items {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.25rem, 3vw, 3rem);
+      flex-wrap: wrap;
+    }
+    .focus-item {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+    .focus-item:hover { color: var(--gold); }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .hero, section, .philosophy, .divisions, .approach, .about, .contact { padding-left: 24px; padding-right: 24px; }
-  .divisions-grid { grid-template-columns: 1fr; }
-  .approach-grid { grid-template-columns: 1fr; gap: 48px; }
-  .footer-inner { grid-template-columns: 1fr; text-align: center; }
-  .footer-links { align-items: center; }
-  footer { padding: 40px 24px; }
-}
-@media (max-width: 600px) {
-  .hero-mark { display: none; }
-}
-</style>
+    /* ─── INTRO ───────────────────────────────────────── */
+    #intro {
+      padding-block: clamp(5rem, 10vw, 9rem);
+      background: var(--white);
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .intro-left {}
+    .intro-headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-top: 1.25rem;
+    }
+    .intro-right {
+      padding-top: 0.5rem;
+    }
+    .intro-body {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+    }
+    .intro-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .division-desc-link {
+      color: var(--gold);
+      border-bottom: 1px solid rgba(184,154,90,0.3);
+      transition: border-color 0.2s;
+    }
+    .division-desc-link:hover { border-color: var(--gold); }
+
+    /* ─── DIVISIONS ───────────────────────────────────── */
+    #divisions {
+      padding-block: clamp(5rem, 10vw, 9rem);
+      background: var(--cream);
+    }
+    .divisions-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .divisions-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--ink);
+      margin-top: 1rem;
+    }
+    .divisions-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 32ch;
+      line-height: 1.7;
+      text-align: right;
+    }
+    .divisions-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border-top: 1px solid var(--rule);
+    }
+    .division-card {
+      padding: 2.5rem 1.75rem 3rem;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      cursor: default;
+    }
+    .division-card:last-child { border-right: none; }
+    .division-card:hover { background: var(--white); }
+    .division-num {
+      font-family: var(--serif);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+    .division-name {
+      line-height: 1.15;
+    }
+    .division-name-master {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+    .division-name-sub {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-top: 0.3rem;
+    }
+    .division-card.ventures .division-name-master { color: var(--gold); }
+    .division-card.ventures .division-name-sub { color: rgba(255,255,255,0.85); }
+    .division-tagline {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .division-desc {
+      font-size: 0.82rem;
+      line-height: 1.85;
+      color: var(--ink-soft);
+      flex: 1;
+    }
+    .division-link {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: auto;
+      transition: gap 0.2s;
+    }
+    .division-link:hover { gap: 0.7rem; }
+    .division-link::after { content: '→'; }
+
+    /* Ventures card accent */
+    .division-card.ventures {
+      background: var(--ink);
+      border-color: rgba(255,255,255,0.07);
+    }
+    .division-card.ventures .division-num { color: var(--gold); }
+    .division-card.ventures .division-name { color: var(--white); }
+    .division-card.ventures .division-tagline { color: rgba(255,255,255,0.35); }
+    .division-card.ventures .division-desc { color: rgba(255,255,255,0.5); }
+    .division-card.ventures:hover { background: #222220; }
+
+    .division-links-split {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+
+    /* ─── VENTURES FEATURE ────────────────────────────── */
+    #ventures {
+      padding-block: clamp(5rem, 10vw, 9rem);
+      background: var(--white);
+    }
+    .ventures-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: center;
+    }
+    .ventures-left {}
+    .ventures-headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-top: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .ventures-body {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: var(--ink-soft);
+      margin-bottom: 2.5rem;
+    }
+    .ventures-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 2px solid var(--gold);
+      background: var(--cream);
+    }
+    .ventures-notice p {
+      font-size: 0.78rem;
+      line-height: 1.75;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .ventures-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+    .sector-cell {
+      background: var(--white);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: background 0.2s;
+    }
+    .sector-cell:hover { background: var(--cream); }
+    .sector-icon {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .sector-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .sector-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── PHILOSOPHY ──────────────────────────────────── */
+    #philosophy {
+      padding-block: clamp(5rem, 10vw, 9rem);
+      background: var(--ink);
+    }
+    .philosophy-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: start;
+    }
+    .philosophy-label {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.2);
+      line-height: 1.3;
+      margin-top: 1rem;
+    }
+    .philosophy-signature {
+      font-family: var(--serif);
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1.6;
+      margin-top: 2rem;
+      opacity: 0.85;
+    }
+    .philosophy-list {
+      list-style: none;
+      counter-reset: phil;
+    }
+    .philosophy-list li {
+      counter-increment: phil;
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding-block: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .philosophy-list li:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+    .philosophy-list li::before {
+      content: counter(phil, upper-roman);
+      font-family: var(--serif);
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+    .phil-text {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.4;
+    }
+
+    /* ─── ABOUT / APPROACH ───────────────────────────── */
+    #about {
+      padding-block: clamp(5rem, 10vw, 9rem);
+      background: var(--white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: start;
+    }
+    .about-headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-top: 1.25rem;
+    }
+    .about-body {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--ink-soft);
+    }
+    .about-body + .about-body { margin-top: 1.25rem; }
+    .about-credentials {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .cred-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .cred-value {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .brand-link {
+      color: var(--ink);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .brand-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    #contact {
+      padding-block: clamp(5rem, 10vw, 9rem);
+      background: var(--cream);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: start;
+    }
+    .contact-headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-top: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-sub {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding-block: 1.75rem;
+      border-bottom: 1px solid var(--rule);
+      align-items: center;
+    }
+    .contact-row:first-child { border-top: 1px solid var(--rule); }
+    .contact-row-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .contact-row-value {
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+    .contact-row-value a {
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .contact-row-value a:hover { color: var(--gold); }
+    .contact-cta {
+      margin-top: 2.5rem;
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      padding: 0.9rem 2.25rem;
+      transition: background 0.25s;
+    }
+    .contact-cta:hover { background: var(--gold); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-block: 3rem;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.06em;
+    }
+    .footer-principle {
+      font-family: var(--serif);
+      font-size: 0.8rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.18);
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 1.5rem;
+    }
+
+    /* ─── MOBILE NAV ──────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      z-index: 99;
+      padding: 2rem clamp(1.5rem, 5vw, 4rem);
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      padding-block: 0.25rem;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .divisions-grid { grid-template-columns: repeat(3, 1fr); }
+      .division-card:nth-child(3) { border-right: none; }
+      .division-card:nth-child(4),
+      .division-card:nth-child(5) { border-bottom: none; }
+    }
+    @media (max-width: 900px) {
+      .intro-grid,
+      .ventures-grid,
+      .contact-grid,
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .philosophy-inner { grid-template-columns: 1fr; }
+      .divisions-note { text-align: left; }
+      .ventures-right { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .divisions-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .division-card:nth-child(2n) { border-right: none; }
+      .division-card { border-right: 1px solid var(--rule); }
+      .division-card:nth-child(2n) { border-right: none; }
+      .intro-stats { grid-template-columns: 1fr 1fr; }
+      .about-credentials { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      .divisions-grid { grid-template-columns: 1fr; }
+      .division-card { border-right: none !important; }
+      .ventures-right { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: center; gap: 1.25rem; }
+      .hero-wordmark { letter-spacing: 0.14em; }
+    }
+
+    /* ─── SCROLL REVEAL ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-scroll-line { animation: none; }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#top" class="nav-logo">
-    KLAJANI
-    <span class="sep"></span>
-    <span class="group">GROUP</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#divisions">Divisions</a></li>
-    <li><a href="#approach">Approach</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-mark" aria-hidden="true">K</div>
-  <p class="hero-eyebrow">KLAJANI GROUP — Private Premium Ventures</p>
-  <h1 class="hero-title">Strategic opportunities. Trusted relationships. International reach.</h1>
-  <p class="hero-sub">Access is earned through relationship. Opportunities are shared through trust. That is how KLAJANI GROUP operates.</p>
-  <a href="#divisions" class="hero-cta">Explore the Group</a>
-  <div class="hero-scroll" aria-hidden="true">
-    <span>Scroll</span>
-    <div class="hero-scroll-line"></div>
-  </div>
-</section>
-
-<!-- PHILOSOPHY -->
-<section class="philosophy" id="philosophy">
-  <div class="philosophy-inner">
-    <span class="section-label">Our Position</span>
-    <p class="philosophy-quote">"KLAJANI GROUP develops selected ventures and partnerships across visibility, safety, residential living, yachting, automotive, strategic opportunities and intelligent systems."</p>
-    <p class="philosophy-body">We do not operate as a broker, agency, or platform. We operate as a private group — building selected relationships, facilitating discreet introductions, and developing ventures that meet a single standard: long-term value for all parties involved.</p>
-    <p class="philosophy-body" style="margin-top:16px;">Discretion is not a feature. It is a prerequisite.</p>
-  </div>
-</section>
-
-<!-- DIVISIONS -->
-<section class="divisions" id="divisions">
-  <div class="divisions-inner">
-    <div class="divisions-header">
-      <span class="section-label">Seven Areas. One Standard.</span>
-      <h2 class="section-heading">The Divisions</h2>
-      <p class="section-sub">Each division is built as a standalone vertical — with the structure, clarity and scalability that long-term growth requires.</p>
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">KLAJANI<span>&nbsp;Group</span></a>
+        <ul class="nav-links">
+          <li><a href="#divisions">Divisions</a></li>
+          <li><a href="#about">Group</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Open menu" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <div class="divisions-grid">
+  </nav>
 
-      <!-- 01 VENTURES -->
-      <div class="division-card featured">
-        <span class="division-num">01</span>
-        <h3 class="division-name">KLAJANI Ventures</h3>
-        <p class="division-sub">Strategic off-market access</p>
-        <p class="division-body">Strategic opportunities, aviation transactions, infrastructure projects, investment opportunities, partnerships and international business development — shared exclusively within a closed network of qualified principals.</p>
-        <div class="division-tags">
-          <span class="tag">Private Aviation</span>
-          <span class="tag">Superyacht</span>
-          <span class="tag">Trophy Assets</span>
-          <span class="tag">Infrastructure</span>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#divisions" onclick="toggleMenu()">Divisions</a>
+    <a href="#about" onclick="toggleMenu()">Group</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+
+        <h1 class="hero-wordmark">KLAJANI</h1>
+        <p class="hero-wordmark-group">Group</p>
+
+        <div class="hero-rule" aria-hidden="true"></div>
+
+        <p class="hero-descriptor">Private Business Group</p>
+
+        <p class="hero-signature">Discreet. Strategic. Long-term.</p>
+
+        <div class="hero-actions">
+          <a href="#divisions" class="btn-primary">Our Divisions</a>
+          <a href="#contact" class="btn-ghost">Private Enquiry</a>
         </div>
-      </div>
 
-      <!-- 02 VISIBILITY -->
-      <div class="division-card">
-        <span class="division-num">02</span>
-        <h3 class="division-name">KLAJANI Visibility</h3>
-        <p class="division-sub">Curated premium visibility</p>
-        <p class="division-body">Curated premium visibility networks in selected high-end environments — connecting premium brands and operators with the right audiences, in the right context.</p>
-        <div class="division-tags">
-          <span class="tag">Mallorca</span>
-          <span class="tag">Slovenia</span>
-          <span class="tag">Europe</span>
-        </div>
       </div>
-
-      <!-- 03 SAFETY -->
-      <div class="division-card">
-        <span class="division-num">03</span>
-        <h3 class="division-name">KLAJANI Safety</h3>
-        <p class="division-sub">Risk &amp; Asset Protection Advisory</p>
-        <p class="division-body">Independent risk assessments, prevention strategies and protection concepts for premium properties, hospitality environments, yachts and critical infrastructure.</p>
-        <a href="/safety.html" class="division-link">Explore KLAJANI Safety &rarr;</a>
-      </div>
-
-      <!-- 04 LIVING -->
-      <div class="division-card">
-        <span class="division-num">04</span>
-        <h3 class="division-name">KLAJANI Living</h3>
-        <p class="division-sub">Residential Transformation</p>
-        <p class="division-body">Premium surface restoration and precision material refinishing for residential and hospitality interiors — technical excellence applied to the spaces that define how people live.</p>
-        <div class="division-tags">
-          <span class="tag">Residential</span>
-          <span class="tag">Interior</span>
-          <span class="tag">Precision</span>
-        </div>
-      </div>
-
-      <!-- 05 YACHTING -->
-      <div class="division-card">
-        <span class="division-num">05</span>
-        <h3 class="division-name">KLAJANI Yachting</h3>
-        <p class="division-sub">Marine Surface Excellence</p>
-        <p class="division-body">Specialist surface refinishing and precision restoration for superyachts and premium vessels — applied where technical standards and aesthetic expectations are equally uncompromising.</p>
-        <div class="division-tags">
-          <span class="tag">Superyacht</span>
-          <span class="tag">Marine</span>
-          <span class="tag">Refinishing</span>
-        </div>
-      </div>
-
-      <!-- 06 AUTOMOTIVE -->
-      <div class="division-card">
-        <span class="division-num">06</span>
-        <h3 class="division-name">KLAJANI Automotive</h3>
-        <p class="division-sub">Precision Surface &amp; Paint</p>
-        <p class="division-body">Specialised cosmetic correction, smart repair and surface preservation for selected premium and collector vehicles — thirty years of applied expertise in a single-standard practice.</p>
-        <div class="division-tags">
-          <span class="tag">Collector Cars</span>
-          <span class="tag">Cosmetic Correction</span>
-          <span class="tag">Preservation</span>
-        </div>
-      </div>
-
-      <!-- 07 AI -->
-      <div class="division-card">
-        <span class="division-num">07</span>
-        <h3 class="division-name">KLAJANI AI</h3>
-        <p class="division-sub">Intelligent Systems</p>
-        <p class="division-body">AI-assisted communication infrastructure, process automation and intelligent systems — applied selectively across KLAJANI's own operations and for a small number of external partners.</p>
-        <div class="division-tags">
-          <span class="tag">Process Automation</span>
-          <span class="tag">Communication</span>
-          <span class="tag">Systems</span>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-<!-- APPROACH -->
-<section class="approach" id="approach">
-  <div class="approach-inner">
-    <span class="section-label">How We Work</span>
-    <div class="approach-grid">
-      <div>
-        <h2 class="approach-heading">A private group operating on trust, discretion and long-term relationships.</h2>
-        <p class="approach-body">KLAJANI does not seek volume. It seeks alignment. Every introduction, engagement and partnership is evaluated against a single criterion: does it create lasting value for all parties involved?</p>
-        <p class="approach-body" style="margin-top:16px;">This is how the group has grown — not through marketing, but through results.</p>
+  <!-- CURRENT FOCUS -->
+  <section id="focus" aria-label="Current focus areas">
+    <div class="container">
+      <div class="focus-inner">
+        <span class="focus-label">Current Focus</span>
+        <div class="focus-divider" aria-hidden="true"></div>
+        <div class="focus-items">
+          <span class="focus-item">Aviation</span>
+          <span class="focus-item">Data Centers</span>
+          <span class="focus-item">Marine</span>
+          <span class="focus-item">Fire Safety</span>
+          <span class="focus-item">Premium Media Networks</span>
+        </div>
       </div>
-      <ul class="approach-list">
-        <li><span class="approach-num">I.</span><span class="approach-text">All engagements begin with a confidential conversation — no public intake forms, no automated pipelines.</span></li>
-        <li><span class="approach-num">II.</span><span class="approach-text">Introductions are made only when there is a genuine basis for mutual value. We do not introduce indiscriminately.</span></li>
-        <li><span class="approach-num">III.</span><span class="approach-text">Confidentiality is standard. All parties engaging with KLAJANI sign appropriate documentation before any information exchange.</span></li>
-        <li><span class="approach-num">IV.</span><span class="approach-text">We operate across borders and time zones — but always at the pace that the relationship requires.</span></li>
-      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <span class="section-label">About</span>
-    <h2 class="about-heading">Built on trust.<br>Structured for access.<br>Sustained by results.</h2>
-    <p class="about-body">KLAJANI GROUP is a private international holding structure operated by a small, senior team with expertise across surface transformation, strategic introductions, premium visibility and venture facilitation.</p>
-    <p class="about-body">Each division is led by specialists with significant field experience — not generalists, not junior teams. The group was built to serve a specific level of client: one who values discretion, precision and a relationship-first approach above all else.</p>
-    <p class="about-principle">"We do not explain what we do to everyone. To the right person, no explanation is necessary."</p>
-    <p class="about-footer-text">KLAJANI Holding LLC is registered in Wyoming, United States. The group operates internationally across European markets with active presence in Spain, Slovenia and Austria.</p>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <span class="section-label">Contact</span>
-    <h2 class="contact-heading">Begin a conversation.</h2>
-    <p class="contact-sub">Private enquiries only. All communications are treated with full discretion.</p>
-    <a href="mailto:office@klajani.com" class="contact-email">office@klajani.com</a>
-    <p class="contact-note">No public intake. Contact by introduction or direct enquiry.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <span class="footer-logo">KLAJANI <span>GROUP</span></span>
-    <div class="footer-tagline">
-      Selected Opportunities &middot; Trusted Introductions &middot; Premium Networks
+  <!-- INTRO -->
+  <section id="intro" aria-label="Group overview">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-left reveal">
+          <span class="eyebrow">KLAJANI Group</span>
+          <h2 class="intro-headline">
+            A private business group operating where quality and discretion are the only standard.
+          </h2>
+        </div>
+        <div class="intro-right reveal">
+          <p class="intro-body">
+            A privately held international business group operating across five premium divisions. Long-term value, created through strategic introductions, disciplined execution and enduring relationships.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="/legal.html">Legal Notice</a>
-      <a href="/privacy.html">Privacy Policy</a>
+  </section>
+
+  <hr class="rule-h" />
+
+  <!-- DIVISIONS -->
+  <section id="divisions" aria-label="Our divisions">
+    <div class="container">
+      <div class="divisions-header reveal">
+        <div>
+          <span class="eyebrow">Five Divisions</span>
+          <h2 class="divisions-title">One Standard.</h2>
+        </div>
+        <p class="divisions-note">Each division operates independently while sharing the same commitment to precision, discretion and long-term thinking.</p>
+      </div>
     </div>
-  </div>
-  <p class="footer-copy">&copy; KLAJANI Holding LLC. All rights reserved. Sheridan, Wyoming, United States.</p>
-</footer>
+    <div class="container">
+      <div class="divisions-grid">
+
+        <article class="division-card reveal">
+          <div class="division-num">I</div>
+          <h3 class="division-name"><span class="division-name-master">KLAJANI</span><span class="division-name-sub">Visibility</span></h3>
+          <p class="division-tagline">Premium Digital Media</p>
+          <p class="division-desc">
+            Digital display networks and localised media presence across selected markets. Operating brands include <a href="https://mallorcadesk.com" target="_blank" rel="noopener" class="division-desc-link">Mallorca Desk</a> and <a href="https://sloveniadesk.com" target="_blank" rel="noopener" class="division-desc-link">Slovenia Desk</a>, with further international concepts in development.
+          </p>
+          <div class="division-links-split">
+            <a href="https://mallorcadesk.com" target="_blank" rel="noopener" class="division-link">Mallorca Desk</a>
+            <a href="https://sloveniadesk.com" target="_blank" rel="noopener" class="division-link">Slovenia Desk</a>
+          </div>
+        </article>
+
+        <article class="division-card reveal">
+          <div class="division-num">II</div>
+          <h3 class="division-name"><span class="division-name-master">KLAJANI</span><span class="division-name-sub">Yachting</span></h3>
+          <p class="division-tagline">Marine Services</p>
+          <p class="division-desc">
+            On-site project management, refit support and premium marine services — delivered wherever the vessel is. No shipyard required. Flexible, discreet and executed to the standard the asset demands.
+          </p>
+          <span class="division-link">Enquire</span>
+        </article>
+
+        <article class="division-card reveal">
+          <div class="division-num">III</div>
+          <h3 class="division-name"><span class="division-name-master">KLAJANI</span><span class="division-name-sub">Premium Care</span></h3>
+          <p class="division-tagline">Asset Preservation</p>
+          <p class="division-desc">
+            Mobile premium services for exceptional assets. Automotive, marine and interior — maintained, restored and preserved to the highest standard. On-site. Discreet. Uncompromising.
+          </p>
+          <span class="division-link">Enquire</span>
+        </article>
+
+        <article class="division-card reveal">
+          <div class="division-num">IV</div>
+          <h3 class="division-name"><span class="division-name-master">KLAJANI</span><span class="division-name-sub">Safety</span></h3>
+          <p class="division-tagline">Fire Protection</p>
+          <p class="division-desc">
+            Official distribution partner for Fire Destroyer advanced fire suppression systems. Serving marine, hospitality, commercial, residential and automotive sectors.
+          </p>
+          <a href="safety.html" class="division-link">Learn More</a>
+        </article>
+
+        <article class="division-card ventures reveal">
+          <div class="division-num">V</div>
+          <h3 class="division-name"><span class="division-name-master">KLAJANI</span><span class="division-name-sub">Ventures</span></h3>
+          <p class="division-tagline">Strategic Introductions</p>
+          <p class="division-desc">
+            Selected off-market opportunities. Cross-border introductions. Handled with absolute discretion.
+          </p>
+          <a href="#ventures" class="division-link">Learn More</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURES FEATURE -->
+  <section id="ventures" aria-label="Ventures division detail">
+    <div class="container">
+      <div class="ventures-grid">
+        <div class="ventures-left reveal">
+          <span class="eyebrow">KLAJANI Ventures</span>
+          <h2 class="ventures-headline">
+            Before opportunities<br />reach the market.
+          </h2>
+          <p class="ventures-body">
+            KLAJANI Ventures originates and introduces selected off-market opportunities before they become publicly available. We work exclusively with principals who require absolute discretion and proven execution.
+          </p>
+          <div class="ventures-notice">
+            <p>Active projects are not publicly disclosed. Direct enquiries only.</p>
+          </div>
+        </div>
+        <div class="ventures-right reveal" style="display:flex; flex-direction:column; gap:0; background: none; border: 1px solid var(--rule);">
+          <div class="sector-cell" style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--rule); background: var(--cream);">
+            <div style="font-size:0.72rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft);">Selected off-market opportunities</div>
+          </div>
+          <div class="sector-cell" style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--rule); background: var(--cream);">
+            <div style="font-size:0.72rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft);">Strategic introductions</div>
+          </div>
+          <div class="sector-cell" style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--rule); background: var(--cream);">
+            <div style="font-size:0.72rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft);">Cross-border partnerships</div>
+          </div>
+          <div class="sector-cell" style="padding: 1.5rem 2rem; background: var(--cream);">
+            <div style="font-size:0.72rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft);">Confidential business development</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule-h" />
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy" aria-label="Our principles">
+    <div class="container">
+      <div class="philosophy-inner">
+        <div class="reveal">
+          <span class="eyebrow" style="color: rgba(255,255,255,0.3);">Principles</span>
+          <p class="philosophy-label">How we<br />operate.</p>
+          <p class="philosophy-signature">Built on trust.<br />Proven through execution.</p>
+        </div>
+        <ol class="philosophy-list reveal">
+          <li><span class="phil-text">Trust is the foundation of every relationship we enter.</span></li>
+          <li><span class="phil-text">Discretion is not optional — it is the standard.</span></li>
+          <li><span class="phil-text">We execute with precision, without unnecessary noise.</span></li>
+          <li><span class="phil-text">Long-term thinking takes priority over short-term volume.</span></li>
+          <li><span class="phil-text">Quality defines everything we do and everyone we work with.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="About the group">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="eyebrow">The Group</span>
+          <h2 class="about-headline">
+            Private.<br />International.<br />Built to last.
+          </h2>
+        </div>
+        <div class="reveal">
+          <p class="about-body">
+            KLAJANI Group is a privately held international business group founded by entrepreneurs with decades of combined experience across premium automotive, marine, media and international business development. The group brings together operational expertise and strategic network in equal measure.
+          </p>
+          <div class="about-credentials">
+            <div style="grid-column: span 2;">
+              <div class="cred-label">Operating Brands</div>
+              <div class="cred-value">
+                <a href="https://mallorcadesk.com" target="_blank" rel="noopener" class="brand-link">Mallorca Desk</a>
+                <span style="color:var(--rule); margin-inline:0.5rem;">·</span>
+                <a href="https://sloveniadesk.com" target="_blank" rel="noopener" class="brand-link">Slovenia Desk</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule-h" />
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="eyebrow">Direct Contact</span>
+          <h2 class="contact-headline">
+            Private enquiries.<br />Strategic conversations.
+          </h2>
+          <p class="contact-sub">
+            If you have a relevant project or introduction, we are open to a conversation.
+          </p>
+        </div>
+        <div class="contact-details reveal">
+          <div class="contact-row" style="border-top: 1px solid var(--rule);">
+            <div class="contact-row-value" style="padding-block: 1.75rem;">
+              <a href="mailto:klaudia@klajani.com">klaudia@klajani.com</a>
+            </div>
+          </div>
+          <a href="mailto:klaudia@klajani.com" class="contact-cta">Begin a Conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">KLAJANI<span>&nbsp;Group</span></div>
+        <ul class="footer-links">
+          <li><a href="#divisions">Divisions</a></li>
+          <li><a href="#about">Group</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="legal.html">Legal Notice</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+        <span class="footer-copy">© 2026 KLAJANI Group. All rights reserved.</span>
+      </div>
+      <div class="footer-principle">Built on trust. Proven through execution.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    function toggleMenu() {
+      const m = document.getElementById('mobileMenu');
+      m.classList.toggle('open');
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav background on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 20
+        ? 'rgba(255,255,255,0.98)'
+        : 'rgba(255,255,255,0.96)';
+    }, { passive: true });
+  </script>
 
 </body>
 </html>
