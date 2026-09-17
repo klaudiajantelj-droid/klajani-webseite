@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KLAJANI Group — Private Business Group</title>
-  <meta name="description" content="KLAJANI Group is a private international business group operating across five premium divisions: Visibility, Yachting, Premium Care, Safety, and Ventures. Discreet. Strategic. Long-term." />
+  <meta name="description" content="KLAJANI Group is a private international business group operating across six premium divisions: Visibility, Yachting, Automotive, Safety, Ventures, and PremiumCards. Discreet. Strategic. Long-term." />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="KLAJANI Group" />
-  <meta property="og:description" content="Private business group. Five divisions. Selected partnerships." />
+  <meta property="og:description" content="Private business group. Six divisions. Selected partnerships." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://klajani.com" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -422,7 +422,7 @@
     }
     .divisions-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--rule);
     }
     .division-card {
@@ -435,7 +435,8 @@
       gap: 1.25rem;
       cursor: default;
     }
-    .division-card:last-child { border-right: none; }
+    .division-card:nth-child(3n) { border-right: none; }
+    .division-card:nth-child(n+4) { border-bottom: none; }
     .division-card:hover { background: var(--white); }
     .division-num {
       font-family: var(--serif);
@@ -851,7 +852,8 @@
       .divisions-grid { grid-template-columns: repeat(3, 1fr); }
       .division-card:nth-child(3) { border-right: none; }
       .division-card:nth-child(4),
-      .division-card:nth-child(5) { border-bottom: none; }
+      .division-card:nth-child(5),
+      .division-card:nth-child(6) { border-bottom: none; }
     }
     @media (max-width: 900px) {
       .intro-grid,
@@ -982,7 +984,7 @@
         </div>
         <div class="intro-right reveal">
           <p class="intro-body">
-            A privately held international business group operating across five premium divisions. Long-term value, created through strategic introductions, disciplined execution and enduring relationships.
+            A privately held international business group operating across six premium divisions. Long-term value, created through strategic introductions, disciplined execution and enduring relationships.
           </p>
         </div>
       </div>
@@ -996,7 +998,7 @@
     <div class="container">
       <div class="divisions-header reveal">
         <div>
-          <span class="eyebrow">Five Divisions</span>
+          <span class="eyebrow">Six Divisions</span>
           <h2 class="divisions-title">One Standard.</h2>
         </div>
         <p class="divisions-note">Each division operates independently while sharing the same commitment to precision, discretion and long-term thinking.</p>
@@ -1010,12 +1012,11 @@
           <h3 class="division-name"><span class="division-name-master">KLAJANI</span><span class="division-name-sub">Visibility</span></h3>
           <p class="division-tagline">Curated Business Networks</p>
           <p class="division-desc">
-            MallorcaDesk and SloveniaDesk are curated membership networks connecting selected companies, premium venues and decision-makers. Members gain targeted visibility, valuable introductions and access to relevant business communities. <a href="https://premiumcards.si" target="_blank" rel="noopener" class="division-desc-link">PremiumCards</a> adds a tangible brand touchpoint through high-quality printed business cards.
+            MallorcaDesk and SloveniaDesk are curated membership networks connecting selected companies, premium venues and decision-makers. Members gain targeted visibility, valuable introductions and access to relevant business communities.
           </p>
           <div class="division-links-split">
             <a href="https://www.mallorca-desk.com/" target="_blank" rel="noopener" class="division-link">Mallorca Desk</a>
             <a href="https://slovenia-desk.com" target="_blank" rel="noopener" class="division-link">Slovenia Desk</a>
-            <a href="https://premiumcards.si" target="_blank" rel="noopener" class="division-link">PremiumCards</a>
           </div>
         </article>
 
@@ -1057,6 +1058,16 @@
             Selected off-market opportunities. Cross-border introductions. Handled with absolute discretion.
           </p>
           <a href="#ventures" class="division-link">Learn More</a>
+        </article>
+
+        <article class="division-card reveal">
+          <div class="division-num">VI</div>
+          <h3 class="division-name"><span class="division-name-master">KLAJANI</span><span class="division-name-sub">PremiumCards</span></h3>
+          <p class="division-tagline">Premium Print Products</p>
+          <p class="division-desc">
+            Premium business cards with refined finishes, transparent pricing and dependable production. An exclusive KLAJANI product combining professional quality with an exceptional price-to-quality ratio.
+          </p>
+          <a href="https://premiumcards.si/" target="_blank" rel="noopener" class="division-link">Visit PremiumCards</a>
         </article>
 
       </div>
