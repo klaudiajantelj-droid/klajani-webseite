@@ -612,10 +612,15 @@
 
   /* ─── PRODUCT DOCUMENTATION ───────────────────── */
   .certificates-section { background: var(--off-black); border-top: 1px solid var(--border); }
-  .certificates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .certificates-copy { max-width: 540px; font-size: 15px; font-weight: 300; color: var(--text-on-dark-muted); line-height: 1.8; }
-  .certificates-action { justify-self: end; }
-  @media (max-width: 900px) { .certificates-grid { grid-template-columns: 1fr; gap: 28px; } .certificates-action { justify-self: start; } }
+  .certificates-intro { max-width: 730px; font-size: 15px; font-weight: 300; color: var(--text-on-dark-muted); line-height: 1.8; margin: 20px 0 46px; }
+  .certificates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .certificate-card { display: block; color: inherit; text-decoration: none; border: 1px solid var(--border); background: var(--dark); transition: border-color .2s, transform .2s; }
+  .certificate-card:hover, .certificate-card:focus-visible { border-color: var(--gold); transform: translateY(-3px); }
+  .certificate-card img { display: block; width: 100%; height: 220px; object-fit: contain; background: #fff; padding: 14px; }
+  .certificate-card span { display: block; padding: 18px 20px; font-size: 13px; letter-spacing: .02em; }
+  .certificate-note { margin-top: 26px; color: var(--text-on-dark-muted); font-size: 12px; line-height: 1.7; }
+  @media (max-width: 900px) { .certificates-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .certificates-grid { grid-template-columns: 1fr; } }
 
   /* ─── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 900px) {
@@ -847,15 +852,19 @@
 
 <!-- PRODUCT CERTIFICATES -->
 <section class="certificates-section" aria-labelledby="certificates-title">
-  <div class="section-inner certificates-grid">
-    <div>
-      <span class="section-label">Technical documentation</span>
-      <h2 class="section-heading" id="certificates-title">Product certificates<br><em>&amp; standards</em></h2>
-      <p class="certificates-copy">When a Fire Destroyer solution is recommended, the manufacturer's certificates and declarations can be reviewed directly at the source. The documents relate to specific products and do not certify KLAJANI Safety assessments or individual properties.</p>
+  <div class="section-inner">
+    <span class="section-label">Technical documentation</span>
+    <h2 class="section-heading" id="certificates-title">Product certificates<br><em>&amp; standards</em></h2>
+    <p class="certificates-intro">A selection of manufacturer documents for Fire Destroyer solutions. Open any document to view it in full size. We assess the relevant product and documentation for each proposed application.</p>
+    <div class="certificates-grid">
+      <a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_49_38_00be403189.webp" target="_blank" rel="noopener noreferrer" aria-label="View BAM approval · Aerosol in full size"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_49_38_00be403189.webp" alt="BAM approval · Aerosol" loading="lazy"><span>BAM approval · Aerosol ↗</span></a>
+      <a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_10_08_7ab2fade78.webp" target="_blank" rel="noopener noreferrer" aria-label="View BAM approval · Ball in full size"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_10_08_7ab2fade78.webp" alt="BAM approval · Ball" loading="lazy"><span>BAM approval · Ball ↗</span></a>
+      <a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_16_20_7c2eb295ef.webp" target="_blank" rel="noopener noreferrer" aria-label="View Declaration of conformity · Aerosol in full size"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_16_20_7c2eb295ef.webp" alt="Declaration of conformity · Aerosol" loading="lazy"><span>Declaration of conformity · Aerosol ↗</span></a>
+      <a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_18_05_9c77b5ffd9.webp" target="_blank" rel="noopener noreferrer" aria-label="View Declaration of conformity · Ball in full size"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_18_05_9c77b5ffd9.webp" alt="Declaration of conformity · Ball" loading="lazy"><span>Declaration of conformity · Ball ↗</span></a>
+      <a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_55_52_b3f36d455e.webp" target="_blank" rel="noopener noreferrer" aria-label="View ISO certificate in full size"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_55_52_b3f36d455e.webp" alt="ISO certificate" loading="lazy"><span>ISO certificate ↗</span></a>
+      <a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_58_19_6bb83a730d.webp" target="_blank" rel="noopener noreferrer" aria-label="View TÜV confirmation in full size"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_58_19_6bb83a730d.webp" alt="TÜV confirmation" loading="lazy"><span>TÜV confirmation ↗</span></a>
     </div>
-    <div class="certificates-action">
-      <a href="https://www.fire-destroyer.at/zertifikate" class="btn-secondary" target="_blank" rel="noopener noreferrer">View manufacturer certificates ↗</a>
-    </div>
+    <p class="certificate-note">These documents relate to the manufacturer's products. They do not certify KLAJANI Safety assessments or individual properties. Source: Fire Destroyer.</p>
   </div>
 </section>
 
