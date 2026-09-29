@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLAJANI Safety | Risikoanalyse und Schutzkonzepte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --off-black: #111111;
+    --dark: #1a1a1a;
+    --mid: #2e2e2e;
+    --muted: #6b6b6b;
+    --light-muted: #a0a0a0;
+    --border: rgba(255,255,255,0.08);
+    --border-dark: rgba(0,0,0,0.10);
+    --gold: #b8965a;
+    --gold-light: #c9a96e;
+    --gold-pale: rgba(184,150,90,0.12);
+    --cream: #f5f0e8;
+    --off-white: #fafaf8;
+    --white: #ffffff;
+    --text-on-dark: rgba(255,255,255,0.85);
+    --text-on-dark-muted: rgba(255,255,255,0.45);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--black);
+    color: var(--text-on-dark);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 72px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-division {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    color: var(--text-on-dark-muted);
+    text-transform: uppercase;
+  }
+
+  /* ─── HERO ────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 60px 100px;
+    position: relative;
+    background: var(--black);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 75% 40%, rgba(184,150,90,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(255,255,255,0.02) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.30em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-on-dark-muted);
+    margin-bottom: 48px;
+    max-width: 640px;
+    line-height: 1.5;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 14px 36px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-secondary {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-on-dark);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 14px 36px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.55); color: var(--white); }
+
+  /* ─── DIVIDER ─────────────────────────────────── */
+  .gold-rule {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 20px;
+  }
+
+  /* ─── SECTION BASE ────────────────────────────── */
+  section { padding: 100px 60px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(34px, 4vw, 54px);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .section-heading em { font-style: italic; color: var(--gold-light); }
+  .section-body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.60);
+    max-width: 620px;
+  }
+
+  /* ─── WHY ─────────────────────────────────────── */
+  .why-section {
+    background: var(--off-black);
+    border-top: 1px solid var(--border);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 72px;
+    align-items: start;
+  }
+  .why-left .lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.75);
+    border-left: 1px solid var(--gold);
+    padding-left: 28px;
+    margin-bottom: 36px;
+  }
+  .why-left p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.80;
+    color: rgba(255,255,255,0.50);
+  }
+  .why-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .pillar {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .pillar-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(184,150,90,0.30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .pillar-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .pillar-text h4 {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .pillar-text p {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+  }
+
+  /* ─── SERVICES ────────────────────────────────── */
+  .services-section {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+  }
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 72px;
+    align-items: end;
+  }
+  .services-note {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.40);
+    line-height: 1.70;
+    align-self: end;
+    padding-bottom: 4px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .service-card {
+    background: var(--off-black);
+    padding: 44px 40px;
+    position: relative;
+    transition: background 0.25s;
+  }
+  .service-card:hover { background: #161616; }
+  .service-card.featured {
+    background: #141210;
+  }
+  .service-card.featured::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+  }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .service-tagline {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+  }
+  .service-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.70;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 20px;
+  }
+  .service-meta {
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    color: rgba(255,255,255,0.28);
+    font-weight: 400;
+  }
+  .service-list {
+    list-style: none;
+    margin: 16px 0;
+  }
+  .service-list li {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.50);
+    padding: 5px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.50;
+  }
+  .service-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+    top: 6px;
+  }
+
+  /* ─── INDUSTRIES ──────────────────────────────── */
+  .industries-section {
+    background: var(--cream);
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .industries-section .section-heading { color: var(--off-black); }
+  .industries-section .section-label { color: #8c6d3a; }
+  .industries-section .section-body { color: rgba(0,0,0,0.50); }
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 60px;
+    background: rgba(0,0,0,0.10);
+  }
+  .industry-card {
+    background: var(--cream);
+    padding: 36px 28px;
+    transition: background 0.2s;
+  }
+  .industry-card:hover { background: #ede9df; }
+  .industry-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 20px;
+  }
+  .industry-icon svg { width: 28px; height: 28px; stroke: #8c6d3a; fill: none; stroke-width: 1.5; }
+  .industry-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--off-black);
+    margin-bottom: 8px;
+  }
+  .industry-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(0,0,0,0.45);
+    line-height: 1.60;
+  }
+
+  /* ─── PROCESS ─────────────────────────────────── */
+  .process-section {
+    background: var(--off-black);
+    border-top: 1px solid var(--border);
+  }
+  .process-track {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    gap: 0;
+  }
+  .process-track::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: rgba(184,150,90,0.20);
+  }
+  .process-step {
+    padding: 0 16px 0 0;
+    position: relative;
+    z-index: 1;
+  }
+  .step-dot {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(184,150,90,0.35);
+    background: var(--off-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .step-dot span {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .step-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .step-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.38);
+    line-height: 1.60;
+  }
+
+  /* ─── TEAM / FOUNDER ──────────────────────────── */
+  .founder-section {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+  }
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 64px;
+  }
+  .founder-card {
+    border: 1px solid rgba(184,150,90,0.20);
+    padding: 52px 48px;
+    position: relative;
+    background: #0d0d0d;
+  }
+  .founder-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 1px;
+    height: 60px;
+    background: var(--gold);
+  }
+  .founder-badge {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: block;
+  }
+  .founder-name {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .founder-role {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--text-on-dark-muted);
+    margin-bottom: 28px;
+  }
+  .founder-bio {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.75;
+  }
+  .team-message {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.5vw, 34px);
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+  .team-message em { font-style: italic; color: var(--gold-light); }
+  .team-body {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+  .founder-program-badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(184,150,90,0.35);
+    padding: 8px 20px;
+    margin-bottom: 20px;
+  }
+  .founder-program-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.40);
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+
+  /* ─── CTA ─────────────────────────────────────── */
+  .cta-section {
+    background: var(--off-black);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 120px 60px;
+  }
+  .cta-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 70px);
+    font-weight: 300;
+    line-height: 1.10;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .cta-title em { font-style: italic; color: var(--gold-light); }
+  .cta-sub {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-on-dark-muted);
+    margin-bottom: 52px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  /* ─── FOOTER ──────────────────────────────────── */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--black);
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.30);
+    text-transform: uppercase;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── PRODUCT DOCUMENTATION ───────────────────── */
+  .certificates-section { background: var(--off-black); border-top: 1px solid var(--border); }
+  .certificates-intro { max-width: 730px; font-size: 15px; font-weight: 300; color: var(--text-on-dark-muted); line-height: 1.8; margin: 20px 0 46px; }
+  .certificates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .certificate-card { display: block; color: inherit; text-decoration: none; border: 1px solid var(--border); background: var(--dark); transition: border-color .2s, transform .2s; }
+  .certificate-card:hover, .certificate-card:focus-visible { border-color: var(--gold); transform: translateY(-3px); }
+  .certificate-card img { display: block; width: 100%; height: 220px; object-fit: contain; background: #fff; padding: 14px; }
+  .certificate-card span { display: block; padding: 18px 20px; font-size: 13px; letter-spacing: .02em; }
+  .certificate-note { margin-top: 26px; color: var(--text-on-dark-muted); font-size: 12px; line-height: 1.7; }
+  @media (max-width: 900px) { .certificates-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .certificates-grid { grid-template-columns: 1fr; } }
+
+  /* ─── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 0 28px; }
+    section { padding: 72px 28px; }
+    .hero { padding: 0 28px 80px; }
+    .why-grid,
+    .services-header,
+    .founder-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-track { grid-template-columns: 1fr; gap: 40px; }
+    .process-track::before { display: none; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .cta-section { padding: 80px 28px; }
+  }
+  @media (max-width: 560px) {
+    .industries-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-secondary { text-align: center; }
+  }
+.nav-languages{display:flex;gap:12px;font-size:11px;letter-spacing:.14em}.nav-languages a{color:var(--text-on-dark-muted);text-decoration:none}.nav-languages a[aria-current="page"]{color:var(--gold)}@media(max-width:560px){.nav-division{display:none}}
+</style>
+</head><body>
+<nav><a href="https://klajani.com" class="nav-logo">KLAJANI <span>GROUP</span></a><span class="nav-division">Safety Division</span><div class="nav-languages" aria-label="Sprache"><a href="safety-de.html" lang="de" aria-current="page">DE</a><span>/</span><a href="safety.html" lang="en">EN</a></div></nav>
+<section class="hero"><p class="hero-eyebrow">KLAJANI Safety · Risiko und Vermögensschutz</p><h1 class="hero-title">Menschen.<br><em>Werte.</em><br>Betrieb schützen.</h1><p class="hero-subtitle">Risikoanalysen, Präventionsstrategien und individuelle Schutzkonzepte für hochwertige Immobilien, Hotellerie, Yachten und kritische Infrastruktur.</p><div class="hero-actions"><a href="mailto:safety@klajani.com?subject=Anfrage%20Risikoanalyse" class="btn-primary">Risikoanalyse anfragen</a><a href="mailto:safety@klajani.com?subject=Safety%20Quick%20Check" class="btn-secondary">Quick Check vereinbaren</a></div></section>
+<section class="why-section"><div class="section-inner"><span class="section-label">Warum KLAJANI Safety</span><div class="why-grid"><div class="why-left"><p class="lead">Betriebsunterbrechungen, technische Defekte und Sicherheitsvorfälle können erhebliche finanzielle und rechtliche Folgen haben. Oft sind Schwachstellen lange vorher erkennbar.</p><p>Wir arbeiten mit Eigentümern, Betreibern und Geschäftsführungen. Wir erfassen konkrete Risiken und leiten passende Maßnahmen ab. Diskret, nachvollziehbar und abgestimmt auf den Betrieb.</p></div><div class="why-pillars"><div class="pillar"><div class="pillar-text"><h4>Risiken zuerst</h4><p>Empfehlungen orientieren sich an dokumentierten Risiken und der Eignung der Lösung.</p></div></div><div class="pillar"><div class="pillar-text"><h4>Konkrete Maßnahmen</h4><p>Wir dokumentieren Befunde, setzen Prioritäten und bereiten Entscheidungen vor.</p></div></div><div class="pillar"><div class="pillar-text"><h4>Vertraulichkeit</h4><p>Unterlagen gehen nur an die Auftraggeber und benannte Beteiligte.</p></div></div><div class="pillar"><div class="pillar-text"><h4>Persönliche Betreuung</h4><p>Wir begleiten Analysen persönlich und ziehen bei Bedarf technische Fachleute hinzu.</p></div></div></div></div></div></section>
+<section class="services-section"><div class="section-inner"><div class="services-header"><div><span class="section-label">Unsere Leistungen</span><h2 class="section-heading">Von der Analyse<br><em>zum passenden Schutz</em></h2></div><p class="services-note">Wir beginnen mit dem Risiko. Produkte und technische Lösungen prüfen wir, wenn ihr Nutzen für das konkrete Schutzkonzept klar ist.</p></div><div class="services-grid">
+<div class="service-card"><span class="service-num">01</span><h3 class="service-name">Safety Quick Check</h3><p class="service-tagline">Ein erster Blick mit konkreten Erkenntnissen.</p><p class="service-desc">Kostenlose Begehung vor Ort, um erkennbare Risiken im Betrieb und in der Infrastruktur zu erfassen. Ohne Vorbereitung und ohne Verpflichtung.</p><ul class="service-list"><li>15 bis 30 Minuten vor Ort</li><li>Mündliche Besprechung der Beobachtungen</li><li>Schriftliche Dokumentation auf Wunsch</li></ul></div>
+<div class="service-card"><span class="service-num">02</span><h3 class="service-name">Safety Intelligence Report</h3><p class="service-tagline">Ein klarer Überblick für Entscheidungen.</p><p class="service-desc">Strukturierte Analyse des Risikoprofils für Eigentümer, Betreiber, Investoren und Versicherer.</p><ul class="service-list"><li>Risikoerfassung und Bewertung</li><li>Technische und betriebliche Prüfung</li><li>Fotodokumentation</li><li>Managementübersicht mit Maßnahmen</li></ul></div>
+<div class="service-card"><span class="service-num">03</span><h3 class="service-name">Schutzkonzept</h3><p class="service-tagline">Prioritäten vor Produkten.</p><p class="service-desc">Ein individueller Maßnahmenplan mit technischen Optionen und einer sinnvollen Reihenfolge für die Umsetzung.</p><ul class="service-list"><li>Auf Basis der Risikoanalyse</li><li>Umsetzung in klaren Schritten</li><li>Begründete Auswahl geeigneter Lösungen</li></ul></div>
+<div class="service-card"><span class="service-num">04</span><h3 class="service-name">Jährliche Sicherheitsprüfung</h3><p class="service-tagline">Risiken verändern sich.</p><p class="service-desc">Wir bewerten Risiken erneut, wenn sich Gebäude, Technik, Personal oder Abläufe verändern.</p><ul class="service-list"><li>Jährlicher Termin vor Ort</li><li>Aktualisierte Risikobewertung</li><li>Prüfung früherer Maßnahmen</li></ul></div>
+</div></div></section>
+<section class="industries-section"><div class="section-inner"><span class="section-label" style="color:#8c6d3a">Einsatzfelder</span><h2 class="section-heading" style="color:var(--off-black)">Schutz für <em style="color:#8c6d3a">anspruchsvolle Betriebe</em></h2><div class="industries-grid"><div class="industry-card"><h3 class="industry-name">Hotels & Resorts</h3><p class="industry-desc">Gäste, Teams und Betriebsabläufe schützen.</p></div><div class="industry-card"><h3 class="industry-name">Fitness & Wellness</h3><p class="industry-desc">Technische und betriebliche Risiken erfassen.</p></div><div class="industry-card"><h3 class="industry-name">Yachten & Marinas</h3><p class="industry-desc">Maritime Anlagen und ihren Betrieb schützen.</p></div><div class="industry-card"><h3 class="industry-name">Hochwertige Immobilien</h3><p class="industry-desc">Risiken in Wohn- und Anlageimmobilien bewerten.</p></div><div class="industry-card"><h3 class="industry-name">Gewerbeimmobilien</h3><p class="industry-desc">Ausfallzeiten reduzieren und den Betrieb absichern.</p></div><div class="industry-card"><h3 class="industry-name">Family Offices & Investoren</h3><p class="industry-desc">Risikoprofile von Vermögenswerten dokumentieren.</p></div><div class="industry-card"><h3 class="industry-name">Hotelgruppen</h3><p class="industry-desc">Mehrere Standorte strukturiert prüfen.</p></div><div class="industry-card"><h3 class="industry-name">Kritische Infrastruktur</h3><p class="industry-desc">Gezielte Analysen für Energie und technische Anlagen.</p></div></div></div></section>
+<section class="certificates-section" aria-labelledby="certificates-title"><div class="section-inner"><span class="section-label">Technische Unterlagen</span><h2 class="section-heading" id="certificates-title">Zertifikate<br><em>&amp; Standards</em></h2><p class="certificates-intro">Eine Auswahl von Herstellerunterlagen zu Schutzlösungen, die wir prüfen. Öffne ein Dokument, um es in voller Größe anzusehen. Die Eignung bewerten wir für jeden Einsatz gesondert.</p><div class="certificates-grid"><a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_49_38_00be403189.webp" target="_blank" rel="noopener noreferrer"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_49_38_00be403189.webp" alt="BAM Zulassung · Aerosol" loading="lazy"><span>BAM Zulassung · Aerosol ↗</span></a><a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_10_08_7ab2fade78.webp" target="_blank" rel="noopener noreferrer"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_10_08_7ab2fade78.webp" alt="BAM Zulassung · Kugel" loading="lazy"><span>BAM Zulassung · Kugel ↗</span></a><a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_16_20_7c2eb295ef.webp" target="_blank" rel="noopener noreferrer"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_16_20_7c2eb295ef.webp" alt="Konformitätserklärung · Aerosol" loading="lazy"><span>Konformitätserklärung · Aerosol ↗</span></a><a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_18_05_9c77b5ffd9.webp" target="_blank" rel="noopener noreferrer"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_06_29_at_14_18_05_9c77b5ffd9.webp" alt="Konformitätserklärung · Kugel" loading="lazy"><span>Konformitätserklärung · Kugel ↗</span></a><a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_55_52_b3f36d455e.webp" target="_blank" rel="noopener noreferrer"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_55_52_b3f36d455e.webp" alt="ISO Zertifikat" loading="lazy"><span>ISO Zertifikat ↗</span></a><a class="certificate-card" href="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_58_19_6bb83a730d.webp" target="_blank" rel="noopener noreferrer"><img src="https://beautiful-car-24557369d5.media.strapiapp.com/Screenshot_2026_04_14_at_14_58_19_6bb83a730d.webp" alt="TÜV Bestätigung" loading="lazy"><span>TÜV Bestätigung ↗</span></a></div><p class="certificate-note">KLAJANI Safety ist Vertriebspartner des Herstellers Fire Destroyer. Diese Produktunterlagen zertifizieren weder unsere Risikoanalysen noch einzelne Immobilien.</p></div></section>
+<section class="process-section"><div class="section-inner"><span class="section-label">Unser Ablauf</span><h2 class="section-heading">Von der ersten Beobachtung<br><em>zur laufenden Betreuung</em></h2><div class="process-track"><div class="process-step"><div class="step-dot"><span>01</span></div><h4 class="step-name">Safety Quick Check</h4><p class="step-desc">Kurzer Termin vor Ort mit ersten Erkenntnissen.</p></div><div class="process-step"><div class="step-dot"><span>02</span></div><h4 class="step-name">Risikoanalyse</h4><p class="step-desc">Dokumentierte Prüfung und Bewertung.</p></div><div class="process-step"><div class="step-dot"><span>03</span></div><h4 class="step-name">Schutzkonzept</h4><p class="step-desc">Prioritäten, Maßnahmen und Umsetzungsplan.</p></div><div class="process-step"><div class="step-dot"><span>04</span></div><h4 class="step-name">Begleitung</h4><p class="step-desc">Unterstützung bei der Umsetzung.</p></div><div class="process-step"><div class="step-dot"><span>05</span></div><h4 class="step-name">Jährliche Prüfung</h4><p class="step-desc">Erneute Bewertung bei veränderten Risiken.</p></div></div></div></section>
+<section class="founder-section"><div class="section-inner"><span class="section-label">Das Team</span><div class="founder-grid"><div class="founder-card"><span class="founder-badge">Leitung KLAJANI Safety</span><h3 class="founder-name">Klaudia Jantelj</h3><p class="founder-role">Gründerin und CEO, KLAJANI Group</p><p class="founder-bio">KLAJANI Safety entstand aus praktischer Erfahrung in Hotellerie, Yachting und Immobilien. Wir betrachten jedes Mandat aus unternehmerischer Sicht: Welche Risiken bestehen und wie lassen sie sich wirksam reduzieren?</p></div><div><p class="team-message">Sicherheit beginnt mit einer klaren Analyse.<br><em>Dann folgt die passende Maßnahme.</em></p><p class="team-body">Unsere Analysen helfen Eigentümern, Betreibern und Investoren, Risiken zu verstehen und Maßnahmen zu priorisieren.</p><div class="founder-program-badge">Founder Programme</div><p class="founder-program-text">Ausgewählte KLAJANI Partner erhalten derzeit einen kostenlosen Safety Quick Check.</p><a href="mailto:safety@klajani.com?subject=Founder%20Programme" class="btn-secondary">Verfügbarkeit anfragen</a></div></div></div></section>
+<section class="cta-section"><span class="gold-rule"></span><h2 class="cta-title">Jede Immobilie<br>trägt <em>Risiken.</em></h2><p class="cta-sub">Entscheidend ist, sie zu erkennen, bevor ein Schaden entsteht.</p><a href="mailto:safety@klajani.com?subject=Vertrauliche%20Safety%20Anfrage" class="btn-primary">Vertrauliches Gespräch anfragen</a></section>
+<footer><span class="footer-logo">KLAJANI <span>GROUP</span> · Safety Division</span><span class="footer-copy">© KLAJANI Holding LLC. Alle Rechte vorbehalten.</span></footer>
+</body></html>
