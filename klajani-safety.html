@@ -610,6 +610,13 @@
     letter-spacing: 0.06em;
   }
 
+  /* ─── PRODUCT DOCUMENTATION ───────────────────── */
+  .certificates-section { background: var(--off-black); border-top: 1px solid var(--border); }
+  .certificates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .certificates-copy { max-width: 540px; font-size: 15px; font-weight: 300; color: var(--text-on-dark-muted); line-height: 1.8; }
+  .certificates-action { justify-self: end; }
+  @media (max-width: 900px) { .certificates-grid { grid-template-columns: 1fr; gap: 28px; } .certificates-action { justify-self: start; } }
+
   /* ─── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 900px) {
     nav { padding: 0 28px; }
@@ -834,6 +841,20 @@
         <h3 class="industry-name">Critical Infrastructure</h3>
         <p class="industry-desc">Targeted assessments for data centres, energy facilities and infrastructure with elevated continuity requirements.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT CERTIFICATES -->
+<section class="certificates-section" aria-labelledby="certificates-title">
+  <div class="section-inner certificates-grid">
+    <div>
+      <span class="section-label">Technical documentation</span>
+      <h2 class="section-heading" id="certificates-title">Product certificates<br><em>&amp; standards</em></h2>
+      <p class="certificates-copy">When a Fire Destroyer solution is recommended, the manufacturer's certificates and declarations can be reviewed directly at the source. The documents relate to specific products and do not certify KLAJANI Safety assessments or individual properties.</p>
+    </div>
+    <div class="certificates-action">
+      <a href="https://www.fire-destroyer.at/zertifikate" class="btn-secondary" target="_blank" rel="noopener noreferrer">View manufacturer certificates ↗</a>
     </div>
   </div>
 </section>
